@@ -1,0 +1,273 @@
+/* Esto es sólo para incluir unn tipo de letra que me gusta mucho. */
+@font-face {
+    font-family: 'Delight';
+    src: url('Delight.ttf') format('truetype');
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+
+  #Header{
+    max-height: 5%;
+    width: 100%;
+    background-color: rgb(198,198, 198);
+    width: 100%;
+    margin: 0;
+    padding: 20px; 
+
+}
+
+    #Contenedor_Logo_Header{
+        max-width: 100%;
+        width: 100px;
+    }
+        #Logo_Header{
+            width: 100%;
+
+
+    }
+        .btn-custom{
+            background-color: rgb(0, 157, 255); /* Cambia el color de fondo a rojo (#f00) */
+            color: #000000; /* Cambia el color del texto a blanco (#fff) */
+            /* Agrega otros estilos personalizados según tus necesidades */
+        }
+    #Contenedor_Menu_Busqueda{
+        width: 70%;
+        margin: 0; /* Centra horizontalmente el contenedor */
+
+        height: 15vh; /* Ajusta el alto al 100% de la altura de la ventana del navegador */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ContenedorPrincipal{
+    height: 100%;
+}
+
+#ParteSuperior{
+    height: 50%
+}
+#ParteInferior{
+    height: 50%;
+}
+
+#ColumnaIzquierda{
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #d11a1a;
+    padding: 0%;
+    }
+        
+    #Contenedor_Imagen{
+        width: 100%;
+        height: 100%;
+        position: relative;
+            }
+    #ImagenGrande{
+        width: 90%;
+        height: 90%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+    }
+
+        
+        
+    
+        #Resultado{
+            font-family: 'Delight', sans-serif;
+            padding-left: 5%;
+        }
+        #PrecioImpreso{
+            font-size: xx-large;
+            color: rgb(20, 76, 125);
+            padding-left: 5%;
+        }
+#ColumnaDerecha{
+    padding: 0%;
+}
+
+.imagen_lateral{
+    height: 100% ;
+    width: 100%;
+
+    text-align: center;
+    background-color: #ddd;
+    border-radius: 5px;
+    font-size: 18px;
+}
+    .Imagen_Lateral_Interior{
+        max-width: 100%;
+        height: 100%;
+    }
+    #Seccion_Calculadora{
+        margin-right: 2px;
+    }
+        #Row1{
+            border-style: solid;
+            border-width: 5px;
+            border-color: rgb(20, 76, 125);
+            
+        }
+            #Row1 input{
+                width: 50%;
+            }
+        #Row2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+            #Row2 button{
+                background-color: rgb(20, 76, 125);
+                font-family: 'Delight', sans-serif;
+                color: a;
+            }
+    #Seccion_Carrito{
+        padding-left: 5%;
+        padding-right: 5%;
+        max-height: 50%;
+        
+        height: 50%;
+        text-align: center;
+    }
+            #Boton_Carrito{
+                background-color: rgb(7,73,72);
+            }
+            #AgregarCarrito{
+                color: aliceblue;
+                font-family: 'Delight', sans-serif;
+                text-align: center;
+            }
+                #RealizarCompra_BTN{
+                    background-color: rgb(7,73,72);
+                    color: whitesmoke;
+                }
+                #CalculadArea_BTN{
+                    color: whitesmoke;
+                }
+            #Carrito{
+                display: flex;
+                max-width: 30%;
+                max-height: 30%;
+                align-items: center;
+            }
+            #Carrito_Logo{
+                height: 40px;
+                width: 40px;
+            }
+
+
+
+
+
+
+            #Row_Footer{
+                padding-top: 1%;
+                padding-bottom: 1%;
+                height: auto;
+                background-color: rgb(198, 198, 198);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #Logo_Footer{
+                max-width: 80%;
+                max-height: 80%;
+            }
+            
+            #Label_Contacto{
+                background-color: rgb(18, 43, 102);
+                color: whitesmoke;
+                font-size: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                margin-bottom: 5px;
+                border-radius: 20px;
+            }
+            #Footer_0{
+                align-items: center; /* Alineación vertical */
+            }
+            
+            #Footer_2 a{
+            background-color: rgb(214, 213, 213);
+            color: darkblue;
+            text-decoration: none;
+            padding: 2%;
+            
+            margin-top: 50px;
+            }
+                #tel{
+                margin-left: -8%;
+                }
+            
+            #Footer_3 a{
+            
+            background-color: rgb(18, 43, 102);
+            color: whitesmoke !important;
+            text-decoration: none !important;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            border-radius: 5px;
+            font-size: larger;
+            
+            padding: 10px;
+            margin-bottom:-35px;
+            
+            
+            }
+
+
+            .mensaje {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 50px;
+                display: none;
+                text-align: center;
+                font-weight: bold;
+                font-size: 20px;
+                padding-top: 10px;
+                transition: opacity 0.5s;
+              }
+              
+              .amarillo {
+                background-color: yellow;
+              }
+              
+              .verde {
+                background-color: green;
+                color: white;
+              }

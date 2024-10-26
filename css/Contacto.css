@@ -1,0 +1,33 @@
+/* Esto es sólo para incluir unn tipo de letra que me gusta mucho. */
+@font-face {
+    font-family: 'Delight';
+    src: url('Delight.ttf') format('truetype');
+  }
+  body{
+    background-color: rgb(35, 65, 123) !important;
+}
+#Contenedor1{
+    background-color: whitesmoke;
+    color: rgb(48, 5, 5);
+    padding: 30px;
+}
+.BotonEnlace{
+    text-decoration: none;
+    text-transform: none;
+    background-color: rgb(94, 21, 19);
+    color: whitesmoke;
+    padding: 20px;
+    margin: 16px;
+}
+.ContenedorImagen{
+    max-height: 80%;
+    max-width: 80%;
+}
+    .ImagenMenu{
+        height: 100%;
+        width: 100%;
+    }
+.TextoVolver{
+    font-family: 'Delight', sans-serif;
+    color: whitesmoke;
+}

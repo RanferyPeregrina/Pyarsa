@@ -1,0 +1,9 @@
+		Grupo1: Meter datos
+signup.php
+registrar.php
+conexion.php
+
+		Grupo2: Conmprobar datos
+validar.php
+db.php
+login.php

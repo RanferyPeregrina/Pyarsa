@@ -1,0 +1,49 @@
+/* Esto es sólo para incluir unn tipo de letra que me gusta mucho. */
+@font-face {
+    font-family: 'Delight';
+    src: url('Delight.ttf') format('truetype');
+  }
+
+body {
+    background-image: url(../index/Fondo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+     }
+
+#TituloPrincipal{
+text-align: center;
+color: rgb(255, 255, 255);
+font-weight: 400;
+background-image: url(Piedra_Fondo1.jpg);
+background-size:cover;
+-webkit-text-stroke: 2px black;
+text-stroke: 2px black;
+text-outline: 10px black;
+}
+    #TituloPrincipal h1{
+        font-size: 480%;
+    }
+    #TituloPrincipal h2{
+        font-size: 280%;
+    }
+#Contenedor1{
+    background-color: rgb(238, 238, 238);
+    text-align: center;
+            }
+    #Cinta1{
+        text-align: center;
+        background-color: whitesmoke;
+
+    }
+#Contenedor2{
+    padding: 5%;
+    margin-top: 5%;
+    background-color: rgb(51, 65, 101);
+    height: 70%;
+    width: 70%;
+}
+    #Carrousel{
+        border-style: solid;
+        border-color: rgb(111, 35, 35);
+        border-width: 20px;
+    }

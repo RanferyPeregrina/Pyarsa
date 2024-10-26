@@ -1,0 +1,69 @@
+body{
+    background-color: darkred !important;
+    height: 100vh; /* Ajusta el alto al 100% de la altura de la ventana del navegador */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+#ContenedorPrincipal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: whitesmoke;
+    max-width: 80%;
+    max-height: 70%;
+}
+#LadoIzquierdo{
+    padding: 4%;
+    background-color: whitesmoke;
+}
+    #Encabezado{
+        text-align: center;
+        margin-bottom: 8%;
+    }
+    #Contenido{
+        background-color: rgb(100,100,100);
+        padding: 1%;
+        color: whitesmoke;
+        border-radius: 20px;
+        margin-bottom: 5%;
+        padding-bottom: 10%;
+
+    }
+    #Contenido h3{
+        margin-top:5%;
+        margin-bottom: 5%;
+        text-align: center;
+    }
+        #Contenido label{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: x-large;
+        padding-left: 10%;
+        }
+        #Contenido_Form input{
+            padding-left: 3%;
+            width: 80%;
+            height: 50px;
+            margin-left: 10%;
+            font-size: large;
+        }
+
+
+#LadoDerecho{
+    max-width: 100%;
+    max-height: 80%;
+    background-image: url(https://tr.rbxcdn.com/5885d54f7c4126dd72edbbb1120ae861/150/150/AvatarHeadshot/Png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#Icono{
+    text-align: center;
+
+}
+    #Icono_Imagen{
+        max-width: 40%;
+        max-height: 20%;
+    }

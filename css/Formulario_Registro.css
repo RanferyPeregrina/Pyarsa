@@ -1,0 +1,71 @@
+/* Esto es sólo para incluir unn tipo de letra que me gusta mucho. */
+@font-face {
+    font-family: 'Delight';
+    src: url('../Delight.ttf') format('truetype');
+  }
+
+body{
+    background-color: rgb(74, 85, 147) !important;
+    
+    height: 100vh; /* Ajusta el alto al 100% de la altura de la ventana del navegador */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#LadoIzquierdo{
+
+    max-width: 100%;
+    max-height: 80%;
+
+    background-image: url(../Piedra_Fondo1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#LadoDerecho{
+    background-color: white;
+}
+
+#Encabezado{
+    height: 20%;
+    padding-left:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+    #Imagen_Encabezado{
+        height: 100%;
+        width: 80%;
+        margin-top: 5%;
+    }
+
+#Formulario{
+    background-color: white;
+    
+    padding-left: 15%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    
+}
+    .Label_Formulario{
+        text-transform: bold;
+        color: rgb(0, 0, 0);
+        font-family: 'Delight', sans-serif;
+        font-size: larger;
+    }
+        #Domicilio{
+            height: 15%;
+            width: 100%;
+        }
+        #nombre{
+            width: 70%;
+        }
+        #correo{
+            width: 70%;
+        }
