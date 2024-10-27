@@ -6,7 +6,7 @@ $_SESSION['nombre'] = $nombre;
 
 $conexion = mysqli_connect("localhost", "root", "", "php_login_database");
 
-$consulta = "SELECT*FROM usuario_cliente where nombre = '$nombre' and Contra = '$Contra'";
+$consulta = "SELECT*FROM usuarios where nombre = '$nombre' and Contra = '$Contra'";
 $resultado = mysqli_query($conexion, $consulta);
 
 $filas = mysqli_num_rows($resultado);
@@ -26,7 +26,7 @@ if($filas){
 // Obtener los datos del usuario de la base de datos y almacenarlos en variables de sesión
 
 // Realizar la consulta para obtener los datos del usuario
-$query = "SELECT nombre, correo FROM usuario_cliente WHERE correo = ?"; // Reemplaza 'correo' por el nombre de columna correcto
+$query = "SELECT nombre, correo FROM usuarios WHERE correo = ?"; // Reemplaza 'correo' por el nombre de columna correcto
 
 // Preparar la consulta
 $stmt = $conn->prepare($query);

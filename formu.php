@@ -25,9 +25,9 @@ if(mysqli_connect_error()) //Si encuentra un error. SE MUERE
 {
 die('connect error('.mysqli_connect_errno().')'.mysqli_connect_error());
 }else{
-    $SELECT = "SELECT Telefono from usuario_cliente where Telefono = ? limit 1"; //Que agarre el teléfono como dato de seguridad...
-    $INSERT = "INSERT INTO usuario_cliente (nombre, correo, Contra, Domicilio, Telefono)values(?,?,?,?,?)"; //Y que le meta las cosas del usuario.
-
+    $SELECT = "SELECT Telefono FROM usuarios WHERE Telefono = ? LIMIT 1";
+    $INSERT = "INSERT INTO usuarios (nombre, correo, Contra, Domicilio, Telefono, tipo_usuario) VALUES (?, ?, ?, ?, ?, 0)";
+    
     $stmt = $conn->prepare($SELECT);
     $stmt ->bind_param("s", $Telefono);
     $stmt ->execute();
@@ -35,20 +35,23 @@ die('connect error('.mysqli_connect_errno().')'.mysqli_connect_error());
     $stmt ->store_result();
     $rnum = $stmt->num_rows;
 
-    if($rnum == 0)
-    {
-        $stmt -> close();
+    if ($rnum == 0) {
+        $stmt->close();
+
+        // Inserción de nuevo usuario como comprador (tipo_usuario = 0)
         $stmt = $conn->prepare($INSERT);
-        $stmt ->bind_param( "sssss", $nombre, $correo, $Contra, $Domicilio, $Telefono);
-        $stmt ->execute();
-        echo "REGISTRO COMPLETADO.";
-    }else{
-        echo "Alguien ya registró ese número...";
+        $stmt->bind_param("sssss", $nombre, $correo, $Contra, $Domicilio, $Telefono);
+        $stmt->execute();
+        echo "Registro completado.";
+    } else {
+        echo "Este número de teléfono ya está registrado.";
     }
     $stmt->close();
     $conn->close();
 }
 
-}else{echo "Todos los datos son obligatorios"; die();} //Si cualquier está vacío te regaña... Y SE MUERE
-
+    } else {
+    echo "Todos los datos son obligatorios.";
+    die();
+    }
 ?>
