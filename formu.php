@@ -51,6 +51,23 @@ die('connect error('.mysqli_connect_errno().')'.mysqli_connect_error());
 }
 
     } else {
+
+        // <html>
+        // <h1>Registro copmletado</h1>
+
+        // <h3>Redirigiendo a la página de inicio de sesión...</h3>
+
+        // <script>
+        //     // Función para redirigir a la página deseada
+        //     function redirigir() {
+        //     window.location.href = 'login.php';
+        //     }
+
+        //     // Esperar 20 segundos y luego redirigir
+        //     setTimeout(redirigir, 5000); // 5000 milisegundos = 5 segundos
+        // </script>
+        // </html>
+
     echo "Todos los datos son obligatorios.";
     die();
     }

@@ -44,7 +44,7 @@
         </div>
 
         <div id="Icono" class="div">
-        <img id="Icono_Imagen" src="Banda_Logo_Fondo.png" alt="Cinta1">
+        <img id="Icono_Imagen" src="css/Banda_Logo_Fondo.png" alt="Cinta1">
         </div>
 
         
