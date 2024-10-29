@@ -23,7 +23,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
     if ($tipo_usuario == 1) {
         header("location:assets/Administracion.php");
     } else {
-        header("location:Tienda.html");
+        header("location:Tienda.php");
     }
 } else {
     // Si no coincide el usuario o la contraseña, redirigir a la página de error
