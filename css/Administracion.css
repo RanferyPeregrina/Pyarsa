@@ -1,0 +1,194 @@
+
+    /* - - - - - - - - - -  - - - - - - - - - -  - - - - - - - - - -  - - - - - - - - - -  */
+    
+/* Esto siempre se copia porque no sé crear variables globales en HTML. Perdonen jejel */
+    
+    /* - - - - - - - - - -  - - - - - - - - - -  - - - - - - - - - -  - - - - - - - - - -  */
+
+#Row_Footer{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: auto;
+    background-color: rgb(198, 198, 198);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#Logo_Footer{
+    max-width: 80%;
+    max-height: 80%;
+}
+
+#Label_Contacto{
+    background-color: rgb(18, 43, 102);
+    color: whitesmoke;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+}
+#Footer_0{
+    align-items: center; /* Alineación vertical */
+}
+
+#Footer_2 a{
+background-color: rgb(214, 213, 213);
+color: darkblue;
+text-decoration: none;
+padding: 2%;
+
+margin-top: 50px;
+}
+    #tel{
+    margin-left: -8%;
+    }
+
+#Footer_3 a{
+
+background-color: rgb(18, 43, 102);
+color: whitesmoke !important;
+text-decoration: none !important;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+border-radius: 5px;
+font-size: larger;
+
+padding: 10px;
+margin-bottom:-35px;
+
+
+}
+
+#Header{
+    max-height: 5%;
+    width: 100%;
+    background-color: rgb(198,198, 198);
+    width: 100%;
+    margin: 0;
+    padding: 20px; 
+
+}
+
+    #Contenedor_Logo_Header{
+        max-width: 100%;
+        width: 100px;
+    }
+        #Logo_Header{
+            width: 100%;
+
+
+    }
+        .btn-custom{
+            background-color: rgb(0, 157, 255); /* Cambia el color de fondo a rojo (#f00) */
+            color: #000000; /* Cambia el color del texto a blanco (#fff) */
+            /* Agrega otros estilos personalizados según tus necesidades */
+        }
+    #Contenedor_Menu_Busqueda{
+        width: 70%;
+        margin: 0; /* Centra horizontalmente el contenedor */
+
+        height: 15vh; /* Ajusta el alto al 100% de la altura de la ventana del navegador */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    /* - - - - - - - - - -  - - - - - - - - - -  - - - - - - - - - -  - - - - - - - - - -  */
+    
+/* Hasta aquí se tienen que copiar para todas las páginas. De aquí en adelante, es individual */
+    
+    /* - - - - - - - - - -  - - - - - - - - - -  - - - - - - - - - -  - - - - - - - - - -  */
+
+
+
+#ContenedorPrincipal{
+    background-color: #808080;
+    
+    padding: 50px;
+}
+
+    #ContenedorPrincipal p{
+        background-color: #DADADA;
+
+        padding: 12px;
+        margin: 4px;
+        
+        padding-left: 5%;
+        padding-right: 5%;
+
+        font-size: larger;
+        font-weight: 500;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        
+    }
+
+    #ContenedorPrincipal h1{
+        background-color: #6F2323;
+        color: #DADADA;
+
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #ContenedorPrincipal h2{
+        background-color: #DADADA;
+
+        padding: 12px;
+        margin-top: 4px;
+        
+        padding-left: 5%;
+        padding-right: 5%;
+    
+    }
+    
+    #Tabla{
+        color: aliceblue;
+        background-color: #334165;
+
+        padding: 90px;
+        margin: 0;
+
+        border-color: #6F2323;
+        border-style: solid;
+        border-radius: 2%;
+        border-width: 10px;
+
+        text-align: center;
+
+        margin-bottom: 20%;
+    }
+
+    td{
+        border-color: aliceblue;
+        border-width: 3px;
+        border-style: solid;
+
+        padding: 5px;
+    }
+
+    .Editar{
+        width: 80px;
+        height: 80%;
+
+        background-color: #FFAE4A;
+
+        font-size: large;
+        font-weight: bold;
+       }
+
+    .Eliminar{
+        width: 80px;
+        height: 80%;
+
+        background-color: #65AE4A;
+
+        font-size: large;
+        font-weight: bold;
+    }
