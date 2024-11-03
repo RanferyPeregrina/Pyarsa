@@ -284,6 +284,57 @@ if (!isset($_SESSION['nombre'])) {
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/22/Imagen1.jpg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso Leira</h5>
+                              <p class="card-text">Material: porcelana
+                                Para uso en piso y pared, recomendado para interior y exterior, para áreas como baño, cocina, recámara, comedor y terrazas.
+                                Tamaño: 43x43cm</p>
+                              <a href="Productos/9/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/21/Imagen1.jpg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso Volkano Grafito</h5>
+                              <p class="card-text">Material: ceramico
+                                acabado mate tipo piedra estructurada en diferentes tonos de grises con acentos en tonos cálidos.
+                                Tamaño: 45x45cm</p>
+                              <a href="Productos/10/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/23/Imagen1.jpg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso Asis</h5>
+                              <p class="card-text">Material: cerámica
+                               Piso cerámico marca daltile modelo asis color gris
+                                Tamaño: 37x37cm</p>
+                              <a href="Productos/11/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/24/Imagen1.jpg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso Chert</h5>
+                              <p class="card-text">Material: ceramica
+                               acabado mate en color anis que brinda gran recubrimiento en espacios de tráfico medio pesado.
+                                Tamaño: 35.7x35.7 cm</p>
+                              <a href="Productos/12/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>

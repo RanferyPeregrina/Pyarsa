@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="Articulos.css">
+    <script src="Articulos.js"></script>
+    <title>Articulo 22</title>
+</head>
+<body>
+    
+
+    <header id="Header">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="../../Index.html">
+              <div id ="Contenedor_Logo_Header" class="col-2">
+                <img id="Logo_Header" src="Banda_Logo_Fondo.png" alt="Logo_Header">
+            </div></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://local.infobel.mx/MX100388604-8242423300/pyarsa-ciudad_sabinas_hidalgo.html">Sitio en Amazon</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Más...
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="https://api.whatsapp.com/send/?phone=8125361954&text&type=phone_number&app_absent=0">Pedido personal</a></li>
+                    <li><a class="dropdown-item" href="Información.html">Ayuda</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="https://www.homedepot.com.mx/SearchDisplay?categoryId=&storeId=10351&catalogId=10101&langId=-5&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&pageSize=20&searchTerm=pisoS">Tienda Funcional (Home Depot)</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Busca información" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+    </header>
+
+<br><br>
+
+    <div id="ContenedorPrincipal" class="container">
+        <br><br>
+
+    <div id="ParteSuperior" class="row">
+  
+        <div class="col-6 border">
+            <div class="row">
+            <div id="ColumnaIzquierda" class="col-3">
+                 
+                <div class="row">
+                    <div class="imagen_lateral" >
+                        <button id="btn1" onclick="cambiarImagen('Imagen1.jpg')"><img class ="imagen_lateral" src="Imagen1.jpg" alt="Imagen1"></button>                    </div>
+                </div>
+                <div class="row">
+                    <div class="imagen_lateral">            
+                        <button id="btn2" onclick="cambiarImagen('Imagen2.jpg')"><img class="imagen_lateral" src="Imagen2.jpg" alt="Imagen2"></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="imagen_lateral">
+                        <button id="btn3" onclick="cambiarImagen('Imagen1.jpg')"><img class="imagen_lateral" src="Imagen1.jpg" alt="Imagen1"></button>
+                    </div>
+                </div>
+            </div>
+            <div id="ColumnaDerecha" class="col-7">
+                
+                <div id="Derecha_Parte1" class="col-7">
+              
+
+                    <div id="Contenedor_Imagen" class="container">
+                        <div id="ImagenGrande" class="container">
+                            <img width="300" height="300" id="Imagen_Producto0" src="imagen1.jpg" alt="Imagen del producto">
+                        </div>
+                    </div>                  
+            </div>
+            </div>         
+        </div>
+        </div>
+
+
+        <div class="col-6 border">
+
+    <div class="row">            
+
+
+        <div id="Derecha_Parte2">
+
+            <div id="DescripcionProducto" class="container">
+                <h1>Piso Leira</h1>
+                <br>
+                <strong>$125.00 </strong> m2
+                <br>
+                Piso cerámico leira 33x33 lamosa. Tipo patio. Color multicolor. Tecnología digital. Para espacios en el exterior como la patio, jardin, cochera o terraza. Para tráfico semi intenso. Cobertura de la caja 1.76 m2. Grado de calidad 1a primera. Fácil instalación. </div>
+                <br>
+            <h5 id="Resultado"></h5>
+        </div>    
+            <br>
+         <div class="row">
+                <div id="Contenedor_Resultado" class="container">
+                    
+                    <br>
+                    
+                </div>
+         </div>
+            
+    </div>
+
+    <div class="row">
+
+        <div id="Seccion_Calculadora"class="col-7">
+            <div class="row"><h5>Calculadora de área para cubrir con éste azulejo.</h5></div>
+            <div id="Row1" class="row">
+                <div class="col-4"><label for="alto">Alto (en cm):</label><br><input type="number" id="alto" name="alto"></div>   <div class="col-4"><label for="alto">Ancho(en cm):</label><br><input type="number" id="ancho" name="ancho"></div>
+                <div id="Row2" class="col-4"><button id="CalculadArea_BTN" onclick="calcularArea()">Calcular Área</button></div>
+            </div>
+        </div>
+        <div id="Seccion_Carrito"class="col-4">
+           
+            <div class="row">
+                <h2 id="PrecioImpreso"></h2>
+            </div>
+            <div class="row" id="Boton_Carrito" >
+                <div id="AgregarCarrito"class="col-7"> <button id="RealizarCompra_BTN" onclick="mostrarMensaje('Procesando compra...')">Realizar compra</button> </div>           <div id="Carrito"class="col-4"><img id="Carrito_Logo" src="Carrito_Logo.png" alt="logoCarrito"></div>
+            </div>
+            
+        </div>
+
+    </div>
+
+        </div>
+
+                  
+    </div>
+
+<div id="ParteInferior">
+  <div id="mensajeProcesando" class="mensaje amarillo">Procesando compra...</div>
+  <div id="mensajeCompraExitosa" class="mensaje verde">¡Compra realizada!</div>
+</div>
+
+    </div>
+
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+
+<footer>
+    <div id="Row_Footer" class="row">
+        <div class="col-6">
+            <div id="Footer_0" class="row">
+                
+                <div id="Footer_1" class="col-4">
+                    <img id="Logo_Footer" src="Banda_Logo_Fondo.png" alt="LogotipoFooter">
+                </div>
+                <div id="Footer_2" class="col-4">
+                    <label id ="Label_Contacto">Contacto</label> <br>
+                    <div class="row  justify-content-center align-items-center">
+                      <div class="col-4">
+                        <a href="https://www.facebook.com/p/Pyarsa-100066391909015/ ">Facebook</a>
+                      </div>
+                      <div class="col-4">
+                        <a href="ranfery_morales@hotmail.com">Correo</a> 
+                      </div>
+                      <div id="tel" class="col-4">
+                        <a href="https://wa.me/8125361954">Teléfono</a>
+                      </div>
+                    </div>
+                         
+                </div>
+                <div id="Footer_3" class="col-4">
+                  <a href="../../Terminos_Condiciones.html">Terminos y Condiciones</a> <br>
+                </div>
+
+        </div>
+        </div>
+    </div>
+</footer>
+
+</html>
