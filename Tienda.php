@@ -297,7 +297,7 @@ if (!isset($_SESSION['nombre'])) {
                               <p class="card-text">Material: porcelana
                                 Para uso en piso y pared, recomendado para interior y exterior, para áreas como baño, cocina, recámara, comedor y terrazas.
                                 Tamaño: 43x43cm</p>
-                              <a href="Productos/9/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                              <a href="Productos/22/Articulo.html" class="btn btn-primary">Ver artículo</a>
                             </div>
                           </div>
                     </div>
@@ -309,7 +309,7 @@ if (!isset($_SESSION['nombre'])) {
                               <p class="card-text">Material: ceramico
                                 acabado mate tipo piedra estructurada en diferentes tonos de grises con acentos en tonos cálidos.
                                 Tamaño: 45x45cm</p>
-                              <a href="Productos/10/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                              <a href="Productos/21/Articulo.html" class="btn btn-primary">Ver artículo</a>
                             </div>
                           </div>
                     </div>
@@ -321,7 +321,7 @@ if (!isset($_SESSION['nombre'])) {
                               <p class="card-text">Material: cerámica
                                Piso cerámico marca daltile modelo asis color gris
                                 Tamaño: 37x37cm</p>
-                              <a href="Productos/11/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                              <a href="Productos/23/Articulo.html" class="btn btn-primary">Ver artículo</a>
                             </div>
                           </div>
                     </div>
@@ -333,7 +333,7 @@ if (!isset($_SESSION['nombre'])) {
                               <p class="card-text">Material: ceramica
                                acabado mate en color anis que brinda gran recubrimiento en espacios de tráfico medio pesado.
                                 Tamaño: 35.7x35.7 cm</p>
-                              <a href="Productos/12/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                              <a href="Productos/24/Articulo.html" class="btn btn-primary">Ver artículo</a>
                             </div>
                           </div>
                     </div>
