@@ -21,26 +21,26 @@
          </div>
 
         <div id="Contenido" class="row">
-        <form action="validar.php" method="post">
-        <h3>Ingrese datos de la cuenta</h3> <br>
-        <div id="Contenido_Form" class="container">
-            <div class="row"><label for="nombre">Ingrese su nombre de usuario</label> <br></div>
-            <div class="row">
-                <div class="col-8">
-                <input placeholder = "Nombre de usuario" type="text" name="nombre" id="nombre"><br><br>
+            <form action="assets/validar.php" method="post">
+            <h3>Ingrese datos de la cuenta</h3> <br>
+            <div id="Contenido_Form" class="container">
+                <div class="row"><label for="nombre">Ingrese su nombre de usuario</label> <br></div>
+                <div class="row">
+                    <div class="col-8">
+                    <input placeholder = "Nombre de usuario" type="text" name="nombre" id="nombre"><br><br>
+                    </div>
+                </div>
+                <div class="row"><label for="Contra">Ingrese su contraseña</label><br></div>
+                <div class="row">
+                    <div class="col-8">
+                    <input placeholder="Contraseña" type="password" name="Contra" id="Contra"><br>
+                    </div>
+                    <div class="col-4">
+                        <input type="submit">
+                    </div>
                 </div>
             </div>
-            <div class="row"><label for="Contra">Ingrese su contraseña</label><br></div>
-            <div class="row">
-                <div class="col-8">
-                <input placeholder="Contraseña" type="password" name="Contra" id="Contra"><br>
-                </div>
-                <div class="col-4">
-                    <input type="submit">
-                </div>
-            </div>
-        </div>
-        </form>
+            </form>
         </div>
 
         <div id="Icono" class="div">

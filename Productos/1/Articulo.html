@@ -129,17 +129,21 @@
                 <div id="Row2" class="col-4"><button id="CalculadArea_BTN" onclick="calcularArea()">Calcular Área</button></div>
             </div>
         </div>
+
+        <!-- Esta parte es la que va a mandar la confirmación de compra al formulario - - - - - - - - - - - - - - -  -->
         <div id="Seccion_Carrito"class="col-4">
            
-            <div class="row">
-                <h2 id="PrecioImpreso"></h2>
-            </div>
-            <div class="row" id="Boton_Carrito" >
-                <div id="AgregarCarrito"class="col-7"> <button id="RealizarCompra_BTN" onclick="mostrarMensaje('Procesando compra...')">Realizar compra</button> </div>           <div id="Carrito"class="col-4"><img id="Carrito_Logo" src="Carrito_Logo.png" alt="logoCarrito"></div>
-            </div>
+          <form action="../../assets/agregar_al_carrito.php" method="POST">
+            <input type="hidden" name="id_producto" value="1"> <!-- Reemplaza "1" con el id del producto específico de la página -->
             
-        </div>
-
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" name="cantidad" id="cantidad" min="1" value="1" required>
+        
+            <button type="submit">Añadir al carrito</button>
+        </form>
+            
+          </div>
+        <!-- - - - - - -            - - - - - -          - - - - - -          - - - - - -          - - - - - - -->
     </div>
 
         </div>

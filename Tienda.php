@@ -2,7 +2,7 @@
 session_start(); // Iniciar la sesión
 
 // Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['nombre'])) {
+if (!isset($_SESSION['id_usuario'])) {
     // Si no está autenticado, redirigir al login
     header("Location: login.php");
     exit();
