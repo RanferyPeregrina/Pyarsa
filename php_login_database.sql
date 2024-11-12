@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2024 a las 04:38:45
+-- Tiempo de generación: 12-11-2024 a las 04:01:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -33,6 +33,16 @@ CREATE TABLE `carrito_compras` (
   `id_producto` int(10) NOT NULL,
   `cantidad` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `carrito_compras`
+--
+
+INSERT INTO `carrito_compras` (`id_carrito`, `id_usuario`, `id_producto`, `cantidad`) VALUES
+(1, 3, 1, 211),
+(2, 5, 1, 11041),
+(3, 3, 2, 23),
+(4, 3, 7, 88);
 
 -- --------------------------------------------------------
 
@@ -177,7 +187,7 @@ CREATE TABLE `tipos_usuario` (
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `correo` varchar(100) NOT NULL,
   `Contra` varchar(100) NOT NULL,
@@ -190,10 +200,11 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `Contra`, `Domicilio`, `Telefono`, `tipo_usuario`) VALUES
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `correo`, `Contra`, `Domicilio`, `Telefono`, `tipo_usuario`) VALUES
 (1, 'Nombre1', 'Nombre1@ejemplo.com', 'a1', 'asdasdsadasd', '1234', 0),
 (3, 'Ranfery', 'correoprueba@hotmail.com', 'asdf', 'Calle ejemplo, avenida de ejemplo, colonia ejemplo, Num: 222', '12345678', 0),
-(4, 'Ranfery_Administrador', 'CorreoAdministradorEjemplo@hotmail.com', 'ContraseñaAdministrador1', 'NA', '8125361955', 1);
+(4, 'Ranfery_Administrador', 'CorreoAdministradorEjemplo@hotmail.com', 'ContraseñaAdministrador1', 'NA', '8125361955', 1),
+(5, 'Ranfery2', 'correo2@hotmail.com', 'asdf', 'Calle de ejemplo. Av Ejemplo, #100, Col. Ejemplo, Ciudad ejemplo, NL.', '8125361954', 0);
 
 --
 -- Índices para tablas volcadas
@@ -282,16 +293,22 @@ ALTER TABLE `tipos_usuario`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_usuario`),
   ADD UNIQUE KEY `correo` (`correo`),
   ADD UNIQUE KEY `correo_3` (`correo`),
   ADD UNIQUE KEY `correo_4` (`correo`),
-  ADD KEY `id` (`id`),
+  ADD KEY `id` (`id_usuario`),
   ADD KEY `correo_2` (`correo`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `carrito_compras`
+--
+ALTER TABLE `carrito_compras`
+  MODIFY `id_carrito` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `inventario`
@@ -303,7 +320,7 @@ ALTER TABLE `inventario`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
