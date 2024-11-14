@@ -4,13 +4,14 @@ $conexion = mysqli_connect("localhost", "root", "", "php_login_database");
 
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['id_usuario'])) {
-    header("Location: login.php"); // Redirige a la página de inicio de sesión si no hay sesión
+    header("Location: ../login.php"); // Redirige a la página de inicio de sesión si no hay sesión
     exit();
 }
 
 $id_usuario = $_SESSION['id_usuario'];
 $id_producto = $_POST['id_producto'];
 $cantidad = $_POST['cantidad'];
+echo($_SESSION['id_usuario']);
 
 // Verificar si el producto ya está en el carrito para este usuario
 $verificar = "SELECT * FROM carrito_compras WHERE id_usuario = '$id_usuario' AND id_producto = '$id_producto'";

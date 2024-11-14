@@ -3,6 +3,10 @@ function cambiarImagen(src) {
   }
 
   function calcularArea() {
+            // Prevenir el envío del formulario
+            event.preventDefault();
+
+
   //Definir el precio y ya
     const precio = 240;
 
@@ -20,6 +24,8 @@ function cambiarImagen(src) {
     document.getElementById("Resultado").innerHTML = "Se necesitan " + azulejos + " azulejos para cubrir un área de " + (area/10000) + " m²";   
      document.getElementById("PrecioImpreso").innerHTML = "$"+ (Precio_Resultado/100);
 
+         // Establecer el valor calculado en el campo de cantidad del formulario
+    document.getElementById("cantidad_producto").value = azulejos;
   }
 
   function mostrarMensaje(mensaje) {

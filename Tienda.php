@@ -7,6 +7,7 @@ if (!isset($_SESSION['id_usuario'])) {
     header("Location: login.php");
     exit();
 }
+// echo($_SESSION['id_usuario']);
 ?>
 
 <!DOCTYPE html>
@@ -379,6 +380,8 @@ if (!isset($_SESSION['id_usuario'])) {
             </div>
         </div>
     </footer>
+
+  
 
 </body>
 </html>

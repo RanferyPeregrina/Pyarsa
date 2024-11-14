@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="Articulos.css">
+    <link rel="stylesheet" href="../Articulos.css">
     <script src="Articulos.js"></script>
-    <title>Articulo 19</title>
+    <title>Articulo 19</title>       <!-- Remplazar "Artículo 1" por el nombre del artículo -->
 </head>
 <body>
     
@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                  <a class="nav-link active" aria-current="page" href="../../Tienda.php">Inicio</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="https://local.infobel.mx/MX100388604-8242423300/pyarsa-ciudad_sabinas_hidalgo.html">Sitio en Amazon</a>
@@ -96,58 +96,87 @@
 
         <div class="col-6 border">
 
-    <div class="row">            
+        <div class="row">            
 
+            <div id="Derecha_Parte2">
 
-        <div id="Derecha_Parte2">
-
-            <div id="DescripcionProducto" class="container">
-                <h1>Piso Morelos</h1>
-                <br>
-                <strong>$347.00</strong> m2
-                <br>
-                El piso Morelos, fabricado con cerámica de alta calidad y tecnología digital, es perfecto para su uso en interiores. Con un tamaño de 33x33 cm, este azulejo es resistente al ataque de ácidos y bases, así como a las manchas, brindando una superficie duradera y de fácil mantenimiento. Con el piso Morelos, podrás crear un ambiente elegante y moderno en tu hogar.
-                <br>
-            <h5 id="Resultado"></h5>
-        </div>    
-            <br>
-         <div class="row">
-                <div id="Contenedor_Resultado" class="container">
-                    
+                <div id="DescripcionProducto" class="container">
+                    <h1>Piso pedrado cerámica</h1>
                     <br>
-                    
-                </div>
-         </div>
-            
-    </div>
-
-    <div class="row">
-
-        <div id="Seccion_Calculadora"class="col-7">
-            <div class="row"><h5>Calculadora de área para cubrir con éste azulejo.</h5></div>
-            <div id="Row1" class="row">
-                <div class="col-4"><label for="alto">Alto (en cm):</label><br><input type="number" id="alto" name="alto"></div>   <div class="col-4"><label for="alto">Ancho(en cm):</label><br><input type="number" id="ancho" name="ancho"></div>
-                <div id="Row2" class="col-4"><button id="CalculadArea_BTN" onclick="calcularArea()">Calcular Área</button></div>
-            </div>
-        </div>
-        <div id="Seccion_Carrito"class="col-4">
-           
+                    <strong>$385.00</strong> m2
+                    <br>
+                    ¡Renueva tus espacios interiores con nuestro piso cerámico de calidad superior! Fabricado con cerámica de alta resistencia, este azulejo brinda un recubrimiento perfecto para tu hogar. Con su tamaño de 33x33 cm, ofrece una excelente cobertura en cualquier habitación. Añade un toque de elegancia y durabilidad a tu hogar con este piso cerámico que combina a la perfección estilo y funcionalidad.            <br>
+                <h5 id="Resultado"></h5>
+            </div>    
+                <br>
             <div class="row">
-                <h2 id="PrecioImpreso"></h2>
+                    <div id="Contenedor_Resultado" class="container">
+                        
+                        <br>
+                        
+                    </div>
             </div>
-            <div class="row" id="Boton_Carrito" >
-                <div id="AgregarCarrito"class="col-7"> <button id="RealizarCompra_BTN" onclick="mostrarMensaje('Procesando compra...')">Realizar compra</button> </div>           <div id="Carrito"class="col-4"><img id="Carrito_Logo" src="Carrito_Logo.png" alt="logoCarrito"></div>
-            </div>
+                
+
             
+                <!-- Esta parte es la que va a mandar la confirmación de compra al formulario - - - - - - - - - - - - - - -  -->
+
+
+
+            <h1 id="Resultado"></h1>
+            <h1 id="PrecioImpreso"></h1>
+
+              <!-- Formulario para enviar datos a PHP -->
+              <div class="row">
+
+                <div class="col-6">
+                  <form id="formularioCalculo" onsubmit="calcularArea(event)">
+
+                    <div class="row FormFila">
+                      <div class="col-4"><label for="alto">Alto:</label></div>
+                      <div class="col-8"><input type="number" id="alto" required></div>
+                    </div>
+
+                    <div class="row FormFila">
+                      <div class="col-4"><label for="ancho">Ancho:</label></div>
+                      <div class="col-8"><input type="number" id="ancho" required></div>
+                    </div>
+ 
+                      <button id="Boton_CalcularArea" type="submit">Calcular Área</button>
+
+                </form>
+                </div>
+
+                <div class="col-6">
+                  <form action="../../assets/agregar_al_carrito.php" method="POST">
+                    <input type="hidden" name="id_producto" value="19"> <!-- ID del producto específico -->
+             
+                <div class="row FormFila2">
+                  <label id="label_cantidadProducto"for="cantidad">Cantidad:</label>
+                  <input type="number" name="cantidad" id="cantidad_producto" min="1" value="1" required>
+                </div>
+
+                <div class="row FormFila2">
+                  <button type="submit">Añadir al carrito</button>
+                </div>
+
+                </form>
+                </div>
+
+              </div>
+
+
+                      <!-- - - - - - -            - - - - - -          - - - - - -          - - - - - -          - - - - - - -->
+            </div>
+
         </div>
 
-    </div>
 
         </div>
 
                   
     </div>
-
+<br><br><br><br>
 <div id="ParteInferior">
   <div id="mensajeProcesando" class="mensaje amarillo">Procesando compra...</div>
   <div id="mensajeCompraExitosa" class="mensaje verde">¡Compra realizada!</div>
@@ -161,7 +190,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
-
+</div>
 <footer>
     <div id="Row_Footer" class="row">
         <div class="col-6">

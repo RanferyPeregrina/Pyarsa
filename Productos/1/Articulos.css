@@ -75,14 +75,7 @@
     height: 50%;
 }
 
-#ColumnaIzquierda{
 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #d11a1a;
-    padding: 0%;
-    }
         
     #Contenedor_Imagen{
         width: 100%;
@@ -182,6 +175,83 @@
                 height: 40px;
                 width: 40px;
             }
+
+            .FormFila{
+                text-align: center;
+                align-content: center;
+                align-items: center;
+
+                background-color: rgb(106, 106, 106);
+                color: whitesmoke;
+
+                padding: 20px;
+                margin: 20px;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+                .col-4{
+                    /* width: 100%; */
+                }
+                .col-8{
+                    max-width: 30px;
+                    background-color: rgb(93, 29, 29);
+                }
+                #alto, #ancho{
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 100px;
+                }
+                #Boton_CalcularArea{
+                    margin-left: 20px;
+                    margin-top:  10px;
+                    margin-bottom: 10px;
+
+                    width: 88%;
+                    height: 50px;
+
+                    border-radius: 2px;
+                    border-color: rgb(93, 29, 29);
+                    border-width: 4px;
+
+                    background-color: rgb(18, 43, 102);
+                    color: #ddd;
+
+                    font-family: Delight;
+                }
+
+               .FormFila2{
+                    padding: 20px;
+                    padding-top: 0;
+                    margin: 0;
+                    margin-bottom: 18px;
+
+                    text-align: center;
+
+                    font-family: Delight;
+
+                    height: 100px;
+                    max-height: 50%;
+                }
+                    .FormFila2 input{
+                        height: 100%;
+                        margin-top: 0;
+
+                        background-color: #ffffff;
+
+                        border-radius: 4%;
+                        border-color: rgb(20, 76, 125);
+                        border-width: 4px;
+                        border-style: groove;
+
+                        font-size: xx-large;
+                        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    }
+
+
+
+
+
+
 
 
 
