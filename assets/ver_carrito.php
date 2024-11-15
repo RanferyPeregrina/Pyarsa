@@ -11,7 +11,7 @@ if (!isset($_SESSION['id_usuario'])) {
 // ID del usuario activo
 $id_usuario = $_SESSION['id_usuario'];
 
-echo "Mostrando la sesión sel usuario: {$id_usuario}";
+// echo "Mostrando la sesión sel usuario: {$id_usuario}";
 // Consulta para obtener el carrito de compras del usuario
 $query = "SELECT carrito_compras.id_producto, productos.nombre_producto, productos.precio_producto, carrito_compras.cantidad 
           FROM carrito_compras 
@@ -39,12 +39,12 @@ $resultado = mysqli_query($conexion, query: $query);
         <?php
         $total = 0;
         while ($fila = mysqli_fetch_assoc($resultado)) {
-            $subtotal = $fila['precio'] * $fila['cantidad'];
+            $subtotal = $fila['precio_producto'] * $fila['cantidad'];
             $total += $subtotal;
         ?>
         <tr>
             <td><?php echo $fila['nombre_producto']; ?></td>
-            <td><?php echo "$" . number_format($fila['precio'], 2); ?></td>
+            <td><?php echo "$" . number_format($fila['precio_producto'], 2); ?></td>
             <td><?php echo $fila['cantidad']; ?></td>
             <td><?php echo "$" . number_format($subtotal, 2); ?></td>
             <td>
