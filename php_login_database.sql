@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2024 a las 04:01:54
+-- Tiempo de generación: 15-11-2024 a las 01:06:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `carrito_compras` (
 --
 
 INSERT INTO `carrito_compras` (`id_carrito`, `id_usuario`, `id_producto`, `cantidad`) VALUES
-(1, 3, 1, 211),
+(1, 3, 1, 218),
 (2, 5, 1, 11041),
 (3, 3, 2, 23),
 (4, 3, 7, 88);
@@ -167,6 +167,36 @@ CREATE TABLE `productos` (
   `descripcion_producto` varchar(100) NOT NULL,
   `stock_producto` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `precio_producto`, `descripcion_producto`, `stock_producto`) VALUES
+(1, 'Piso Cerámico', 385, 'Material: cerámica. brinda gran recubrimiento en espacios interiores del hogar. Tamaño: 33x33cm', 10),
+(2, 'Piso Olmoso', 385, 'Cerámico esmaltado, para espacios exterior, tamaño: 37x37cm', 10),
+(3, 'Piso Alder', 385, 'cerámica Piso cerámico para cubrir tus espacios en el interior o exterior. Tamaño: 33x33cm', 10),
+(4, 'Piso cerámico león', 385, 'Es resistente a las manchas, productos químicos, la abrasión en grado III, rayos uv y no es flamable', 10),
+(5, 'Piso Maui', 385, 'Material: marmol Puede instalarse en espacios en el interior como exterior. 44x44cm', 10),
+(6, 'Piso Praga', 385, 'absorción de agua de 3-7%, es resistente a las sustancias químicas y manchas. Tamaño: 50x50cm', 10),
+(7, 'Piso Rocalla', 385, 'Recomendado para interior y exterior, para áreas como cocina, recámara y comedor. Tamaño: 55x5', 10),
+(8, 'Piso Allpess Multicolor', 385, 'Porcelana Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 45x45 cm', 10),
+(9, 'Piso Gale', 385, 'Porcelana Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 43x43cm', 10),
+(10, 'Piso Mixtone', 385, 'Cemento, Brinda gran recubrimiento en espacios de uso comercial con tráfico ligero. Tamaño: 50x50cm', 10),
+(11, 'Piso Hábitat', 385, 'Cerámica Apta para instalar en interiores como recámaras, baños, salas. Tamaño: 60x60cm', 10),
+(12, 'Piso época', 385, 'Cemento, Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 20x20 cm', 10),
+(13, 'Piso cerámico tranto', 385, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 10),
+(14, 'Piso ceramico copana', 385, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 10),
+(15, 'Piso greta', 385, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 10),
+(16, 'Piso cerámico caruzzo', 385, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 10),
+(17, 'Piso ceramico tamaran', 385, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 10),
+(18, 'Piso cerámico gutan', 385, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 10),
+(19, 'Piso morelos', 385, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 10),
+(20, 'Piso marbele', 385, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 10),
+(21, 'Piso Volkano Grafito', 155, 'Ceramico acabado mate tipo piedra estructurada en diferentes tonos de grises. Tamaño: 45x45cm', 10),
+(22, 'Piso Leira', 125, 'Porcelana Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 43x43cm', 10),
+(23, 'Piso Asis', 135, 'Material: cerámica Piso cerámico marca daltile modelo asis color gris Tamaño: 37x37cm', 10),
+(24, 'Piso Chert', 199, 'Ceramica acabado mate en color anis que brinda gran recubrimiento en espacios. Tamaño: 35.7x35.7 cm', 10);
 
 -- --------------------------------------------------------
 
