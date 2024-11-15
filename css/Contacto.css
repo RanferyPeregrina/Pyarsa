@@ -9,7 +9,9 @@
 #Contenedor1{
     background-color: whitesmoke;
     color: rgb(48, 5, 5);
+    
     padding: 30px;
+    margin-top: 90px;
 }
 .BotonEnlace{
     text-decoration: none;

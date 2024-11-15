@@ -1,0 +1,81 @@
+/* Esto es sólo para incluir unn tipo de letra que me gusta mucho. */
+@font-face {
+    font-family: 'Delight';
+    src: url('Delight.ttf') format('truetype');
+  }
+
+
+  #Header{
+    max-height: 5%;
+    width: 100%;
+    background-color: rgb(198,198, 198);
+    width: 100%;
+    margin: 0;
+    padding: 20px; 
+
+}
+
+    #Contenedor_Logo_Header{
+        max-width: 100%;
+        width: 100px;
+    }
+        #Logo_Header{
+            width: 100%;
+
+
+    }
+        .btn-custom{
+            background-color: rgb(0, 157, 255); /* Cambia el color de fondo a rojo (#f00) */
+            color: #000000; /* Cambia el color del texto a blanco (#fff) */
+            /* Agrega otros estilos personalizados según tus necesidades */
+        }
+    #Contenedor_Menu_Busqueda{
+        width: 70%;
+        margin: 0; /* Centra horizontalmente el contenedor */
+
+        height: 15vh; /* Ajusta el alto al 100% de la altura de la ventana del navegador */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #navbarSupportedContent{
+        width: 80%;
+    }
+
+    #Barra_NavBar_Blanca{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+       #Contenido_NavBar_B{
+            margin: 0;
+            margin-right: -20px; 
+        }
+            #BloqueIzquierdo{
+                margin-left: -10px;
+                margin-right: 20px;
+            }
+            #Boton_CerrarSesion{
+            text-align: center;
+            align-content: center;
+            align-items: center;
+
+            margin-left: 50px;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-right: 0;
+
+            padding: 8%;
+            padding-top:    2%;
+            padding-bottom: 2%;
+            padding-right: 0;
+            
+            border-radius: 10%;
+            border-width: 2px;
+            border-color: rgb(78, 16, 16);
+
+            background-color: rgb(172, 172, 172);
+            
+            color: rgb(255, 255, 255);
+        }
+
+

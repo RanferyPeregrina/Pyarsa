@@ -19,11 +19,14 @@ $query = "SELECT carrito_compras.id_producto, productos.nombre_producto, product
           WHERE carrito_compras.id_usuario = $id_usuario";
 $resultado = mysqli_query($conexion, query: $query);
 ?>
+<?php include 'header_externo.php'; ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Mi Carrito de Compras</title>
+    <link rel="stylesheet" href="../css/ver_carrito.css">
 </head>
 <body>
     <h2>Carrito de Compras</h2>

@@ -9,6 +9,16 @@
     <title>Información de contacto.</title>
 </head>
 <body>
+
+    <header id="header">
+        <script>
+            // Cargar el header desde header.html
+            document.getElementById("header").innerHTML = fetch('assets/header.html')
+                .then(response => response.text())
+                .then(data => document.getElementById("header").innerHTML = data);
+        </script>
+    </header>
+
     <div id="Contenedor1" class="container">
         <h1>Información de contacto.</h1>
         <br>
