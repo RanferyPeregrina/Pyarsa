@@ -102,11 +102,11 @@ $resultado = mysqli_query($conexion, $consulta);
             echo "<td>" . $fila['Domicilio'] . "</td>";
             echo "<td>" . $fila['Telefono'] . "</td>";
             echo "<td>
-                    <form action='funcion_editar.php' method='POST' style='display:inline-block;'>
+                    <form action='funcion_editar_USUARIO.php' method='POST' style='display:inline-block;'>
                         <input type='hidden' name='id' value='" . $fila['id'] . "'>
                         <button class='Editar' type='submit'>Editar</button>
                     </form>
-                    <form action='funcion_eliminar.php' method='POST' style='display:inline-block;'>
+                    <form action='funcion_eliminar_USUARIO.php' method='POST' style='display:inline-block;'>
                         <input type='hidden' name='id' value='" . $fila['id'] . "'>
                         <button class='Eliminar' type='submit'>Eliminar</button>
                     </form>
