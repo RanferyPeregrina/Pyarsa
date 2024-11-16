@@ -33,4 +33,5 @@ if (mysqli_num_rows($resultado) > 0) {
 // Cerrar conexión y liberar recursos
 mysqli_free_result($resultado);
 mysqli_close($conexion);
+
 ?>

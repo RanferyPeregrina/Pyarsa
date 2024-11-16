@@ -31,15 +31,23 @@ $resultado = mysqli_query($conexion, query: $query);
 <body>
     <div id="ContenedorPrincipal" class="container">
 
-
         <h2>Carrito de Compras</h2>
+        <br>
+        <p>
+            Este es su carrito de compras. Aquí aparecen todos los artículos asignados a su carrito de compras, es decir, el conjunto de elementos que usted está por comprar.
+            En caso de tener dudas sobre las implicaciones legales de las compras en esta página no olvide consultar la página de <a href="../Terminos_Condiciones.html">Términos y condiciones de uso</a> de la página.
+        </p>
+        <p>
+            Si encuentra alguna irregularidad entre sus compras, no dude en ponerse en <a href="../Contacto.html">contacto</a> con nosotros
+        </p>
+
         <table>
             <tr>
-                <th>Producto</th>
-                <th>Precio Unitario</th>
-                <th>Cantidad</th>
-                <th>Subtotal</th>
-                <th>Acciones</th>
+                <th class="Celda_Titulo">Producto</th>
+                <th class="Celda_Titulo">Precio Unitario</th>
+                <th class="Celda_Titulo">Cantidad</th>
+                <th class="Celda_Titulo">Subtotal</th>
+                <th class="Celda_Titulo">Acciones</th>
             </tr>
             
             <?php
@@ -60,14 +68,15 @@ $resultado = mysqli_query($conexion, query: $query);
             </tr>
             <?php } ?>
             
-            <tr>
-                <td colspan="3">Total</td>
-                <td colspan="2"><?php echo "$" . number_format($total, 2); ?></td>
+            <tr id ="Fila_Total">
+                <td id="Texto_Total" colspan="3">Total</td>
+                <td colspan="1"><?php echo "$" . number_format($total, 2); ?></td>
+                <td onclick="location.href='assets/procesar_compra.php';" id="Boton_FinalizarCompra"><a href="procesar_pedido.php">Finalizar Compra</a></td>
             </tr>
         </table>
 
         <br>
-        <a href="procesar_pedido.php">Finalizar Compra</a>
+
     </div>
 </body>
 </html>
