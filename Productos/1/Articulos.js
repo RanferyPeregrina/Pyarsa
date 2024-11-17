@@ -18,7 +18,7 @@ function cambiarImagen(src) {
       // Calcular la cantidad de azulejos necesarios (suponiendo que cada azulejo mide 33 cm x 33 cm)
     var azulejos = Math.ceil(area / (33 * 33));
       // Calcular el precio de cuánto sería por el área a cubrir
-    var Precio_Resultado = (area / 100) * precio;
+    var Precio_Resultado = (area * precio)/100;
   
     // Mostrar el resultado en el h1 correspondiente
     document.getElementById("Resultado").innerHTML = "Se necesitan " + azulejos + " azulejos para cubrir un área de " + (area / 10000) + " m²";

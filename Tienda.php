@@ -49,7 +49,7 @@ if (!isset($_SESSION['id_usuario'])) {
 
             <div class="contenedorArticulos">
               <h2>Productos</h2>
-              <ul id="ListaArticulo" >
+              <ol id="ListaArticulo" >
                   
                   <li><a class="ArticuloL" href="Productos/1/Articulo.html">Piso cerámico</a></li>
                   <li><a class="ArticuloL" href="Productos/2/Articulo.html">Piso olmoso</a></li>
@@ -61,18 +61,21 @@ if (!isset($_SESSION['id_usuario'])) {
                   <li><a class="ArticuloL" href="Productos/8/Articulo.html">Piso Alpes multicolor</a></li>
                   <li><a class="ArticuloL" href="Productos/9/Articulo.html">Piso gale</a></li>
                   <li><a class="ArticuloL" href="Productos/10/Articulo.html">Piso mixtone</a></li>
-                  <li><a class="ArticuloL" href="Productos/11/Articulo.html">Piso habitad</a></li>
-                  <li><a class="ArticuloL" href="Productos/12/Articulo.html">Piso época</a></li>
-                  <li><a class="ArticuloL" href="Productos/13/Articulo.html">Piso cerámico tranto</a></li>
-                  <li><a class="ArticuloL" href="Productos/14/Articulo.html">Piso ceramico copana</a></li>
-                  <li><a class="ArticuloL" href="Productos/15/Articulo.html">Piso greta</a></li>
-                  <li><a class="ArticuloL" href="Productos/16/Articulo.html">Piso cerámico caruzzo</a></li>
-                  <li><a class="ArticuloL" href="Productos/17/Articulo.html">Piso ceramico tamaran</a></li>
-                  <li><a class="ArticuloL" href="Productos/18/Articulo.html">Piso cerámico gutan</a></li>
-                  <li><a class="ArticuloL" href="Productos/19/Articulo.html">Piso morelos</a></li>
-                  <li><a class="ArticuloL" href="Productos/20/Articulo.html">Piso marbele</a></li>
-  
-              </ul>
+                  <li><a class="ArticuloL" href="Productos/11/Articulo.html">Piso Habitad</a></li>
+                  <li><a class="ArticuloL" href="Productos/12/Articulo.html">Piso Época</a></li>
+                  <li><a class="ArticuloL" href="Productos/13/Articulo.html">Piso Cerámico tranto</a></li>
+                  <li><a class="ArticuloL" href="Productos/14/Articulo.html">Piso Ceramico copana</a></li>
+                  <li><a class="ArticuloL" href="Productos/15/Articulo.html">Piso Greta</a></li>
+                  <li><a class="ArticuloL" href="Productos/16/Articulo.html">Piso Cerámico caruzzo</a></li>
+                  <li><a class="ArticuloL" href="Productos/17/Articulo.html">Piso Ceramico tamaran</a></li>
+                  <li><a class="ArticuloL" href="Productos/18/Articulo.html">Piso Cerámico gutan</a></li>
+                  <li><a class="ArticuloL" href="Productos/19/Articulo.html">Piso Morelos</a></li>
+                  <li><a class="ArticuloL" href="Productos/20/Articulo.html">Piso Marbele</a></li>
+                  <li><a class="ArticuloL" href="Productos/21/Articulo.html">Piso Volkano Grafito</a></li>
+                  <li><a class="ArticuloL" href="Productos/22/Articulo.html">Piso Leira</a></li>
+                  <li><a class="ArticuloL" href="Productos/23/Articulo.html">Piso Asis</a></li>
+                  <li><a class="ArticuloL" href="Productos/24/Articulo.html">Piso Chert</a></li>
+              </o>
             </div>
 
             
@@ -236,25 +239,123 @@ if (!isset($_SESSION['id_usuario'])) {
                 <div class="row">
                     <div class="col-3">
                         <div class="card" style="width: 18rem;">
-                            <img src="Productos/22/Imagen1.jpg".jpg" class="card-img-top" alt="...">
+                            <img src="Productos/13/imagen1.jpeg".jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                              <h5 class="card-title">Piso Leira</h5>
+                              <h5 class="card-title">Piso cerámico tranto</h5>
                               <p class="card-text">Material: porcelana
                                 Para uso en piso y pared, recomendado para interior y exterior, para áreas como baño, cocina, recámara, comedor y terrazas.
                                 Tamaño: 43x43cm</p>
-                              <a href="Productos/22/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                              <a href="Productos/13/Articulo.html" class="btn btn-primary">Ver artículo</a>
                             </div>
                           </div>
                     </div>
                     <div class="col-3">
                         <div class="card" style="width: 18rem;">
-                            <img src="Productos/21/Imagen1.jpg".jpg" class="card-img-top" alt="...">
+                            <img src="Productos/14/imagen1.jpeg" class="card-img-top" alt="...">
                             <div class="card-body">
-                              <h5 class="card-title">Piso Volkano Grafito</h5>
+                              <h5 class="card-title">Piso ceramico copana</h5>
                               <p class="card-text">Material: ceramico
                                 acabado mate tipo piedra estructurada en diferentes tonos de grises con acentos en tonos cálidos.
                                 Tamaño: 45x45cm</p>
+                              <a href="Productos/14/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/15/imagen1.jpeg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso greta</h5>
+                              <p class="card-text">Material: cerámica
+                               Piso cerámico marca daltile modelo asis color gris
+                                Tamaño: 37x37cm</p>
+                              <a href="Productos/15/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/16/imagen1.jpeg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso cerámico caruzzo</h5>
+                              <p class="card-text">Material: ceramica
+                               acabado mate en color anis que brinda gran recubrimiento en espacios de tráfico medio pesado.
+                                Tamaño: 35.7x35.7 cm</p>
+                              <a href="Productos/16/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/17/imagen1.jpeg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso ceramico tamaran</h5>
+                              <p class="card-text">Material: porcelana
+                                Para uso en piso y pared, recomendado para interior y exterior, para áreas como baño, cocina, recámara, comedor y terrazas.
+                                Tamaño: 43x43cm</p>
+                              <a href="Productos/17/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/18/imagen1.jpeg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso cerámico gutan</h5>
+                              <p class="card-text">Material: ceramico
+                                acabado mate tipo piedra estructurada en diferentes tonos de grises con acentos en tonos cálidos.
+                                Tamaño: 45x45cm</p>
+                              <a href="Productos/18/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/19/imagen1.jpeg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso morelos</h5>
+                              <p class="card-text">Material: cerámica
+                               Piso cerámico marca daltile modelo asis color gris
+                                Tamaño: 37x37cm</p>
+                              <a href="Productos/19/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/20/imagen1.jpeg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso Marbele</h5>
+                              <p class="card-text">Material: ceramica
+                               acabado mate en color anis que brinda gran recubrimiento en espacios de tráfico medio pesado.
+                                Tamaño: 35.7x35.7 cm</p>
+                              <a href="Productos/20/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/21/Imagen1.jpg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso Volkano Grafito</h5>
+                              <p class="card-text">Ceramico acabado mate tipo piedra estructurada en diferentes tonos de grises. Tamaño: 45x45cm</p>
                               <a href="Productos/21/Articulo.html" class="btn btn-primary">Ver artículo</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Productos/22/Imagen1.jpg".jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Piso Leira</h5>
+                              <p class="card-text">Porcelana Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 43x43cm</p>
+                              <a href="Productos/22/Articulo.html" class="btn btn-primary">Ver artículo</a>
                             </div>
                           </div>
                     </div>
@@ -263,9 +364,7 @@ if (!isset($_SESSION['id_usuario'])) {
                             <img src="Productos/23/Imagen1.jpg".jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                               <h5 class="card-title">Piso Asis</h5>
-                              <p class="card-text">Material: cerámica
-                               Piso cerámico marca daltile modelo asis color gris
-                                Tamaño: 37x37cm</p>
+                              <p class="card-text">Material: cerámica Piso cerámico marca daltile modelo asis color gris Tamaño: 37x37cm</p>
                               <a href="Productos/23/Articulo.html" class="btn btn-primary">Ver artículo</a>
                             </div>
                           </div>
@@ -275,9 +374,7 @@ if (!isset($_SESSION['id_usuario'])) {
                             <img src="Productos/24/Imagen1.jpg".jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                               <h5 class="card-title">Piso Chert</h5>
-                              <p class="card-text">Material: ceramica
-                               acabado mate en color anis que brinda gran recubrimiento en espacios de tráfico medio pesado.
-                                Tamaño: 35.7x35.7 cm</p>
+                              <p class="card-text">Ceramica acabado mate en color anis que brinda gran recubrimiento en espacios. Tamaño: 35.7x35.7 cm</p>
                               <a href="Productos/24/Articulo.html" class="btn btn-primary">Ver artículo</a>
                             </div>
                           </div>

@@ -101,12 +101,11 @@
             <div id="Derecha_Parte2">
 
                 <div id="DescripcionProducto" class="container">
-                    <h1>Piso pedrado cerámica</h1>
+                    <h1>Piso Hábitad</h1>
                     <br>
                     <strong>$385.00</strong> m2
                     <br>
-                    ¡Renueva tus espacios interiores con nuestro piso cerámico de calidad superior! Fabricado con cerámica de alta resistencia, este azulejo brinda un recubrimiento perfecto para tu hogar. Con su tamaño de 33x33 cm, ofrece una excelente cobertura en cualquier habitación. Añade un toque de elegancia y durabilidad a tu hogar con este piso cerámico que combina a la perfección estilo y funcionalidad.            <br>
-                <h5 id="Resultado"></h5>
+                    El Piso Hábitat es un azulejo de cerámica inspirado en la piedra labrada, con una paleta de colores cálidos que combina tonos naranjas y grises para lograr un aspecto natural y acogedor. Su diseño texturizado evoca la autenticidad de la piedra, ideal para quienes buscan una estética rústica pero elegante. Este piso es versátil y se adapta a diversas áreas, tanto interiores como exteriores, agregando un toque de calidez y estilo a recámaras, baños, salas, cocinas y oficinas. Su tamaño amplio permite una instalación rápida y una cobertura uniforme, resaltando la belleza de cualquier espacio.                <h5 id="Resultado"></h5>
             </div>    
                 <br>
             <div class="row">
@@ -118,52 +117,44 @@
             </div>
                 
 
-            
-                <!-- Esta parte es la que va a mandar la confirmación de compra al formulario - - - - - - - - - - - - - - -  -->
+               <!-- Esta parte es la que va a mandar la confirmación de compra al formulario - - - - - - - - - - - - - - -  -->
+  
+  
+  
+               <h1 id="Resultado"></h1>
+               <h1 id="PrecioImpreso"></h1>
+   
+               <div id="Contenedor_ZonaCompras" class="row">
+                 <div class="col-6" id="ZonaCompras">
+               <!-- Esta parte es la que va a mandar la confirmación de compra al formulario - - - - - - - - - - - - - - -  -->
+               <script>
+                 // Cargar el header desde header.html
+                 document.getElementById("ZonaCompras").innerHTML = fetch('../../assets/ZonaCompras.html')
+                 .then(response => response.text())
+                 .then(data => document.getElementById("ZonaCompras").innerHTML = data);
+                 </script>
+                     <!-- - - - - - -            - - - - - -          - - - - - -          - - - - - -          - - - - - - -->
+                 </div>
+                
+                
+                 <div class="col-6">
+                     <form action="../../assets/agregar_al_carrito.php" method="POST">
+                       <input type="hidden" name="id_producto" value="11"> <!-- ID del producto específico -->
+                 
+                   <div class="row FormFila2">
+                     <label id="label_cantidadProducto"for="cantidad">Cantidad:</label>
+                     <input type="number" name="cantidad" id="cantidad_producto" min="1" value="1" required>
+                   </div>
+     
+                   <div class="row FormFila2">
+                     <button id="AñadirAlCarrito" type="submit">Añadir al carrito</button>
+                   </div>
+     
+                   </form>
+                 </div>         
+             </div>
 
 
-
-            <h1 id="Resultado"></h1>
-            <h1 id="PrecioImpreso"></h1>
-
-              <!-- Formulario para enviar datos a PHP -->
-              <div class="row">
-
-                <div class="col-6">
-                  <form id="formularioCalculo" onsubmit="calcularArea(event)">
-
-                    <div class="row FormFila">
-                      <div class="col-4"><label for="alto">Alto:</label></div>
-                      <div class="col-8"><input type="number" id="alto" required></div>
-                    </div>
-
-                    <div class="row FormFila">
-                      <div class="col-4"><label for="ancho">Ancho:</label></div>
-                      <div class="col-8"><input type="number" id="ancho" required></div>
-                    </div>
- 
-                      <button id="Boton_CalcularArea" type="submit">Calcular Área</button>
-
-                </form>
-                </div>
-
-                <div class="col-6">
-                  <form action="../../assets/agregar_al_carrito.php" method="POST">
-                    <input type="hidden" name="id_producto" value="11"> <!-- ID del producto específico -->
-             
-                <div class="row FormFila2">
-                  <label id="label_cantidadProducto"for="cantidad">Cantidad:</label>
-                  <input type="number" name="cantidad" id="cantidad_producto" min="1" value="1" required>
-                </div>
-
-                <div class="row FormFila2">
-                  <button type="submit">Añadir al carrito</button>
-                </div>
-
-                </form>
-                </div>
-
-              </div>
 
 
                       <!-- - - - - - -            - - - - - -          - - - - - -          - - - - - -          - - - - - - -->

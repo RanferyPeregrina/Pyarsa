@@ -7,7 +7,7 @@ function cambiarImagen(src) {
     event.preventDefault();
 
   //Definir el precio y ya
-    const precio = 305;
+    const precio = 390;
 
     // Obtener los valores de alto y ancho
     var alto = parseFloat(document.getElementById("alto").value);
@@ -15,7 +15,7 @@ function cambiarImagen(src) {
     // Calcular el área
     var area = alto * ancho;
     // Calcular la cantidad de azulejos necesarios (suponiendo que cada azulejo mide 40 cm x 40 cm)
-    var azulejos = Math.ceil(area / (37 * 37));
+    var azulejos = Math.ceil(area / (33 * 33));
     // Calcular el precio de cuanto sería por el área a cubrir
     var Precio_Resultado = ((area/100)*precio)
    

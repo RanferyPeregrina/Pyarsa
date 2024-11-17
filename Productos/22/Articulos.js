@@ -4,7 +4,7 @@ function cambiarImagen(src) {
 
   function calcularArea() {
   //Definir el precio y ya
-    const precio = 678;
+    const precio = 125;
 
     // Obtener los valores de alto y ancho
     var alto = parseFloat(document.getElementById("alto").value);

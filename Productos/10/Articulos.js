@@ -7,7 +7,7 @@ function cambiarImagen(src) {
       event.preventDefault(); 
 
   //Definir el precio y ya
-    const precio = 248;
+    const precio = 560;
 
     // Obtener los valores de alto y ancho
     var alto = parseFloat(document.getElementById("alto").value);

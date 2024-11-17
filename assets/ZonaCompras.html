@@ -1,0 +1,31 @@
+
+        <div id="ZonaCompras">
+
+            <h1 id="Resultado"></h1>
+            <h1 id="PrecioImpreso"></h1>
+
+              <!-- Formulario para enviar datos a PHP -->
+
+
+                  <form id="formularioCalculo" onsubmit="calcularArea(event)">
+
+                    <div class="row FormFila">
+                      <div class="col-4"><label for="alto">Alto:</label></div>
+                      <div class="col-5"><input type="number" id="alto" min="1" required></div>
+                      <div class="col-3">  cm</div>
+                    </div>
+
+                    <div class="row FormFila">
+                      <div class="col-4"><label for="ancho">Ancho:</label></div>
+                      <div class="col-5"><input type="number" id="ancho" min="1" required></div>
+                      <div id="Centimetros" class="col-3">  cm</div>
+                    </div>
+ 
+                      <button id="Boton_CalcularArea" type="submit">Calcular Área</button>
+
+                </form>
+
+
+        </div>
+
+                        
