@@ -141,14 +141,14 @@ margin-bottom:-35px;
         background-color: #DADADA;
 
         padding: 12px;
-        margin-top: 4px;
+
         
         padding-left: 5%;
         padding-right: 5%;
     
     }
     
-    #Tabla{
+    .Tabla{
         color: aliceblue;
         background-color: #334165;
 
@@ -162,7 +162,7 @@ margin-bottom:-35px;
 
         text-align: center;
 
-        margin-bottom: 20%;
+        margin-bottom: 2px;
     }
 
     td{

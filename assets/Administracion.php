@@ -2,8 +2,8 @@
 session_start();
 
 // Verificar si el usuario es un administrador
-if (!isset($_SESSION['nombre'])) {
-    header("Location: login.php");
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: ../login.php");
     exit();
 }
 
@@ -11,11 +11,12 @@ if (!isset($_SESSION['nombre'])) {
 $conexion = mysqli_connect("localhost", "root", "", "php_login_database");
 
 // Consulta para obtener los datos de todos los usuarios
-$consulta = "SELECT id, nombre, correo, Contra, Domicilio, Telefono FROM usuarios";
+$consulta = "SELECT id_usuario, nombre, correo, Contra, Domicilio, Telefono FROM usuarios";
 $resultado = mysqli_query($conexion, $consulta);
 
-// Consulta para obtener los datos de todos los usuarios
-$consulta_pedidos = "SELECT id_pedido, id_usuario, fecha_pedido, total_pedido, estado_pedido, domicilio FROM pedidos";
+$consulta_pedidos = "SELECT pedidos.id_pedido, pedidos.id_usuario, pedidos.fecha_pedido, pedidos.total_pedido, pedidos.estado_pedido, usuarios.Domicilio
+                     FROM pedidos
+                     JOIN usuarios ON pedidos.id_usuario = usuarios.id_usuario";
 $resultado_pedidos = mysqli_query($conexion, $consulta_pedidos);
 ?>
 
@@ -46,7 +47,7 @@ $resultado_pedidos = mysqli_query($conexion, $consulta_pedidos);
 <div id="Contenedor2" class="container">
 <br><br>
 <h2>Lista de Usuarios Registrados</h2>
-    <table id="Tabla">
+    <table class="Tabla">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -60,7 +61,7 @@ $resultado_pedidos = mysqli_query($conexion, $consulta_pedidos);
         // Mostrar los datos de los usuarios en la tabla
         while ($fila = mysqli_fetch_assoc($resultado)) {
             echo "<tr>";
-            echo "<td>" . $fila['id'] . "</td>";
+            echo "<td>" . $fila['id_usuario'] . "</td>";
             echo "<td>" . $fila['nombre'] . "</td>";
             echo "<td>" . $fila['correo'] . "</td>";
             echo "<td>" . $fila['Contra'] . "</td>";
@@ -68,11 +69,11 @@ $resultado_pedidos = mysqli_query($conexion, $consulta_pedidos);
             echo "<td>" . $fila['Telefono'] . "</td>";
             echo "<td>
                     <form action='funcion_editar_USUARIO.php' method='POST' style='display:inline-block;'>
-                        <input type='hidden' name='id' value='" . $fila['id'] . "'>
+                        <input type='hidden' name='id_usuario' value='" . $fila['id_usuario'] . "'>
                         <button class='Editar' type='submit'>Editar</button>
                     </form>
                     <form action='funcion_eliminar_USUARIO.php' method='POST' style='display:inline-block;'>
-                        <input type='hidden' name='id' value='" . $fila['id'] . "'>
+                        <input type='hidden' name='id_usuario' value='" . $fila['id_usuario'] . "'>
                         <button class='Eliminar' type='submit'>Eliminar</button>
                     </form>
                 </td>";
@@ -87,32 +88,33 @@ $resultado_pedidos = mysqli_query($conexion, $consulta_pedidos);
 <div id="Contenedor3" class="container">
 <br><br>
 <h2>Lista de pedidos de Usuarios</h2>
-    <table id="Tabla">
+    <table class="Tabla">
         <tr>
             <th>Pedido</th>
             <th>id_usuario</th>
             <th>Fecha</th>
             <th>Monto a pagar</th>
-            <th>Estado del pedido</th>
             <th>Domicilio</th>
+            <th>Estado del pedido</th>
         </tr>
         <?php
         // Mostrar los datos de los usuarios en la tabla
-        while ($fila = mysqli_fetch_assoc($resultado)) {
+        while ($fila = mysqli_fetch_assoc($resultado_pedidos)) {
             echo "<tr>";
-            echo "<td>" . $fila['id'] . "</td>";
-            echo "<td>" . $fila['nombre'] . "</td>";
-            echo "<td>" . $fila['correo'] . "</td>";
-            echo "<td>" . $fila['Contra'] . "</td>";
+            echo "<td>" . $fila['id_pedido'] . "</td>";
+            echo "<td>" . $fila['id_usuario'] . "</td>";
+            echo "<td>" . $fila['fecha_pedido'] . "</td>";
+            echo "<td>" . $fila['total_pedido'] . "</td>"; 
             echo "<td>" . $fila['Domicilio'] . "</td>";
-            echo "<td>" . $fila['Telefono'] . "</td>";
+            echo "<td>" . $fila['estado_pedido'] . "</td>";
             echo "<td>
-                    <form action='funcion_editar_USUARIO.php' method='POST' style='display:inline-block;'>
-                        <input type='hidden' name='id' value='" . $fila['id'] . "'>
+            
+                    <form action='funcion_editar_PEDIDO.php' method='POST' style='display:inline-block;'>
+                        <input type='hidden' name='id_pedido' value='" . $fila['id_pedido'] . "'>
                         <button class='Editar' type='submit'>Editar</button>
                     </form>
-                    <form action='funcion_eliminar_USUARIO.php' method='POST' style='display:inline-block;'>
-                        <input type='hidden' name='id' value='" . $fila['id'] . "'>
+                    <form action='funcion_eliminar_PEDIDO.php' method='POST' style='display:inline-block;'>
+                        <input type='hidden' name='id_pedido' value='" . $fila['id_pedido'] . "'>
                         <button class='Eliminar' type='submit'>Eliminar</button>
                     </form>
                 </td>";
