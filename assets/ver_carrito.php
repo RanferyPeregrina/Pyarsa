@@ -71,7 +71,7 @@ $resultado = mysqli_query($conexion, query: $query);
             <tr id ="Fila_Total">
                 <td id="Texto_Total" colspan="3">Total</td>
                 <td colspan="1"><?php echo "$" . number_format($total, 2); ?></td>
-                <td onclick="location.href='assets/procesar_compra.php';" id="Boton_FinalizarCompra"><a href="procesar_pedido.php">Finalizar Compra</a></td>
+                <td onclick="location.href='procesar_pedido.php';" id="Boton_FinalizarCompra"><a href="procesar_pedido.php">Finalizar Compra</a></td>
             </tr>
         </table>
 

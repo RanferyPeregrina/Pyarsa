@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra</title>
+    
+    <!-- Redirección a Tienda.php después de 5 segundos -->
+    <meta http-equiv="refresh" content="5; url=../Tienda.php">
+    
+    <!-- Puedes agregar tu CSS en un archivo separado o directamente aquí -->
+    <style>
+        /* Ejemplo de estilos básicos */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2em;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333333;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #666666;
+        }
+
+        .loader {
+            margin: 1em 0;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .back-link {
+            margin-top: 1.5em;
+            display: inline-block;
+            font-size: 1rem;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Gracias por su compra!</h1>
+        <p>Su pedido ha sido confirmado y estamos procesando su compra.</p>
+        
+        <!-- Elemento decorativo: animación de carga -->
+        <div class="loader"></div>
+        
+        <p>Será redirigido a nuestra tienda en unos momentos...</p>
+        <!-- Link opcional para redirigir manualmente -->
+        <a href="../Tienda.php" class="back-link">Volver a la tienda ahora</a>
+    </div>
+</body>
+</html>
