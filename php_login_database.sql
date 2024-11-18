@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2024 a las 06:37:05
+-- Tiempo de generación: 18-11-2024 a las 13:25:50
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -35,16 +35,6 @@ CREATE TABLE `carrito_compras` (
   `precio_total` decimal(10,2) DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `carrito_compras`
---
-
-INSERT INTO `carrito_compras` (`id_carrito`, `id_usuario`, `id_producto`, `cantidad`, `precio_total`) VALUES
-(49, 5, 11, 17, 2310.00),
-(50, 5, 18, 682, 37800.00),
-(51, 3, 10, 24, 3360.00),
-(52, 3, 17, 98, 6840.00);
-
 -- --------------------------------------------------------
 
 --
@@ -70,6 +60,25 @@ CREATE TABLE `detalles_pedido` (
   `cantidad` int(9) NOT NULL,
   `precio_unitario` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detalles_pedido`
+--
+
+INSERT INTO `detalles_pedido` (`id_detalle`, `id_pedido`, `id_producto`, `cantidad`, `precio_unitario`) VALUES
+(1, 10, 10, 24, 560),
+(2, 10, 17, 98, 380),
+(3, 11, 11, 17, 385),
+(4, 11, 18, 682, 280),
+(5, 12, 2, 59, 420),
+(6, 12, 7, 80, 456),
+(7, 13, 1, 147, 385),
+(8, 14, 1, 74, 385),
+(9, 15, 1, 74, 385),
+(10, 15, 6, 261, 343),
+(11, 15, 8, 35, 520),
+(12, 16, 3, 56, 390),
+(13, 17, 11, 17, 385);
 
 -- --------------------------------------------------------
 
@@ -126,6 +135,15 @@ CREATE TABLE `metodos_pago` (
   `descripcion_metodoPago` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `metodos_pago`
+--
+
+INSERT INTO `metodos_pago` (`id_metodoPago`, `tipo_metodoPago`, `descripcion_metodoPago`) VALUES
+(1, 'Tarjeta de', 'Tarjeta bancaria con valor de crédito.'),
+(2, 'Ecectivo', 'Pague en efectivo al recibir o llegar a una sucursal'),
+(3, 'Tarjeta de', 'Tarjeta de nómina con ahorro bancario');
+
 -- --------------------------------------------------------
 
 --
@@ -140,6 +158,14 @@ CREATE TABLE `pagos` (
   `monto_pagado` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `pagos`
+--
+
+INSERT INTO `pagos` (`id_pago`, `id_pedido`, `id_metodoPago`, `fecha_pago`, `monto_pagado`) VALUES
+(6, 15, 0, '2024-11-18', 136213),
+(7, 17, 0, '2024-11-18', 6545);
+
 -- --------------------------------------------------------
 
 --
@@ -150,10 +176,18 @@ CREATE TABLE `pedidos` (
   `id_pedido` int(5) NOT NULL,
   `id_usuario` int(5) NOT NULL,
   `fecha_pedido` date NOT NULL,
-  `total_pédido` float NOT NULL,
-  `estado_pedido` varchar(9) NOT NULL,
-  `direccion_envio` varchar(200) NOT NULL
+  `total_pedido` float NOT NULL,
+  `estado_pedido` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`id_pedido`, `id_usuario`, `fecha_pedido`, `total_pedido`, `estado_pedido`) VALUES
+(14, 3, '2024-10-27', 28490, 'Rechazado'),
+(16, 3, '2024-11-18', 21840, 'Entregado'),
+(17, 3, '2024-11-18', 6545, 'Completad');
 
 -- --------------------------------------------------------
 
@@ -232,10 +266,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `correo`, `Contra`, `Domicilio`, `Telefono`, `tipo_usuario`) VALUES
-(1, 'Nombre1', 'Nombre1@ejemplo.com', 'a1', 'asdasdsadasd', '1234', 0),
-(3, 'Ranfery', 'correoprueba@hotmail.com', 'asdf', 'Calle ejemplo, avenida de ejemplo, colonia ejemplo, Num: 222', '12345678', 0),
-(4, 'Ranfery_Administrador', 'CorreoAdministradorEjemplo@hotmail.com', 'ContraseñaAdministrador1', 'NA', '8125361955', 1),
-(5, 'Ranfery2', 'correo2@hotmail.com', 'asdf', 'Calle de ejemplo. Av Ejemplo, #100, Col. Ejemplo, Ciudad ejemplo, NL.', '8125361954', 0);
+(1, 'Nombre1', 'Nombre1@ejemplo.com', 'a2', 'asdasdsadasd', '1234', 0),
+(3, 'Ranfery', 'correoprueba@hotmail.com', 'asdf', 'AAA', '12345678', 0),
+(5, 'Ranfery2', 'correo2@hotmail.com', 'asdf', 'Calle de ejemplo. Av Ejemplo, #100, Col. Ejemplo, Ciudad ejemplo, NL.', '8125361954', 0),
+(6, 'Admin', 'admin@gmail.com', 'admin', '.', '1', 1);
 
 --
 -- Índices para tablas volcadas
@@ -339,7 +373,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `carrito_compras`
 --
 ALTER TABLE `carrito_compras`
-  MODIFY `id_carrito` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_carrito` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- AUTO_INCREMENT de la tabla `detalles_pedido`
+--
+ALTER TABLE `detalles_pedido`
+  MODIFY `id_detalle` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `inventario`
@@ -348,10 +388,28 @@ ALTER TABLE `inventario`
   MODIFY `id_inventario` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `metodos_pago`
+--
+ALTER TABLE `metodos_pago`
+  MODIFY `id_metodoPago` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `pagos`
+--
+ALTER TABLE `pagos`
+  MODIFY `id_pago` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `id_pedido` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
