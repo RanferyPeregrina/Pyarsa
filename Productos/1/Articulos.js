@@ -31,24 +31,3 @@ function cambiarImagen(src) {
     document.getElementById("precio_total").value = Precio_Resultado / 100;
 
   }
-
-  function mostrarMensaje(mensaje) {
-
-    var mensajeProcesando = document.getElementById('mensajeProcesando');
-    var mensajeCompraExitosa = document.getElementById('mensajeCompraExitosa');
-    
-    // Mostrar mensaje de "Procesando compra"
-    mensajeProcesando.style.display = 'block';
-  
-    // Ocultar mensaje después de 3 segundos
-    setTimeout(function() {
-      mensajeProcesando.style.display = 'none';
-      // Mostrar mensaje de "Compra realizada"
-      mensajeCompraExitosa.style.display = 'block';
-      // Ocultar mensaje después de 2 segundos
-      setTimeout(function() {
-        mensajeCompraExitosa.style.display = 'none';
-      }, 2000);
-    }, 3000);
-  }
-  

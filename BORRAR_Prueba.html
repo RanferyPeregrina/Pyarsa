@@ -10,7 +10,7 @@
     <input type="number" id="input1">
 
     <label for="input2">Doble del número:</label>
-    <input type="number" id="input2" readonly> <!-- Este input será solo de lectura -->
+    <input type="number" id="input2"> <!-- Este input será solo de lectura -->
 
     <script>
         const input1 = document.getElementById('input1');
@@ -18,8 +18,8 @@
 
         // Detecta cambios en el primer input
         input1.addEventListener('input', function() {
-            const Valor = parseFloat(input1.value) || 0; // Asegurarse de que sea un número
-            input2.value = Valor * 2
+            const value = parseFloat(input1.value) || 0; // Asegurarse de que sea un número
+            input2.value = value * 2; // Calcula el doble y actualiza el segundo input
         });
     </script>
 </body>

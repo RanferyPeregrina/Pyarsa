@@ -21,25 +21,10 @@ function cambiarImagen(src) {
     // Mostrar el resultado en el h1 correspondiente
     document.getElementById("Resultado").innerHTML = "Se necesitan " + azulejos + " azulejos para cubrir un área de " + (area/10000) + " m²";   
      document.getElementById("PrecioImpreso").innerHTML = "$"+ (Precio_Resultado/100);
-     document.getElementById("cantidad_producto").value = azulejos;
-  }
+    // Establecer el valor calculado en el campo de cantidad del formulario
+    document.getElementById("cantidad_producto").value = azulejos;
+    // Establecer los valores en los campos ocultos
+    document.getElementById("precio_total").innerHTML = (Precio_Resultado / 100);
+    document.getElementById("precio_total").value = Precio_Resultado / 100;
 
-  function mostrarMensaje(mensaje) {
-    var mensajeProcesando = document.getElementById('mensajeProcesando');
-    var mensajeCompraExitosa = document.getElementById('mensajeCompraExitosa');
-    
-    // Mostrar mensaje de "Procesando compra"
-    mensajeProcesando.style.display = 'block';
-  
-    // Ocultar mensaje después de 3 segundos
-    setTimeout(function() {
-      mensajeProcesando.style.display = 'none';
-      // Mostrar mensaje de "Compra realizada"
-      mensajeCompraExitosa.style.display = 'block';
-      // Ocultar mensaje después de 2 segundos
-      setTimeout(function() {
-        mensajeCompraExitosa.style.display = 'none';
-      }, 2000);
-    }, 3000);
   }
-  

@@ -43,7 +43,7 @@
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
 
-                    <form id ="BotonCulero" action="assets/Cerrar_Sesion.php">
+                    <form id ="BotonCulero" action="Cerrar_Sesion.php">
                         <input id="Boton_CerrarSesion" type="submit" value="Cerrar sesión">
                     </form>
                 </div>
