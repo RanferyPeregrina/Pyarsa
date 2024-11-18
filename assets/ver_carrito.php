@@ -13,7 +13,7 @@ $id_usuario = $_SESSION['id_usuario'];
 
 // echo "Mostrando la sesión sel usuario: {$id_usuario}";
 // Consulta para obtener el carrito de compras del usuario
-$query = "SELECT carrito_compras.id_producto, productos.nombre_producto, productos.precio_producto, carrito_compras.cantidad 
+$query = "SELECT carrito_compras.id_producto, productos.nombre_producto, productos.precio_producto, carrito_compras.cantidad, carrito_compras.precio_total 
           FROM carrito_compras 
           INNER JOIN productos ON carrito_compras.id_producto = productos.id_producto
           WHERE carrito_compras.id_usuario = $id_usuario";
@@ -53,14 +53,14 @@ $resultado = mysqli_query($conexion, query: $query);
             <?php
             $total = 0;
             while ($fila = mysqli_fetch_assoc($resultado)) {
-                $subtotal = $fila['precio_producto'] * $fila['cantidad'];
+                $subtotal = $fila['precio_total'];
                 $total += $subtotal;
             ?>
             <tr>
                 <td><?php echo $fila['nombre_producto']; ?></td>
                 <td><?php echo "$" . number_format($fila['precio_producto'], 2); ?></td>
                 <td><?php echo $fila['cantidad']; ?></td>
-                <td><?php echo "$" . number_format($subtotal, 2); ?></td>
+                <td><?php echo "$" . number_format($fila['precio_total'], 2); ?></td>
                 <td>
                     <!-- Enlaces para editar o eliminar -->
                     <a href="funcion_eliminar_CARRITO.php?id_producto=<?php echo $fila['id_producto']; ?>">Eliminar</a>

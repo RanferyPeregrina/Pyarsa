@@ -23,9 +23,13 @@ function cambiarImagen(src) {
     // Mostrar el resultado en el h1 correspondiente
     document.getElementById("Resultado").innerHTML = "Se necesitan " + azulejos + " azulejos para cubrir un área de " + (area / 10000) + " m²";
     document.getElementById("PrecioImpreso").innerHTML = "$" + (Precio_Resultado / 100);
-  
+
     // Establecer el valor calculado en el campo de cantidad del formulario
     document.getElementById("cantidad_producto").value = azulejos;
+    // Establecer los valores en los campos ocultos
+    document.getElementById("precio_total").innerHTML = (Precio_Resultado / 100);
+    document.getElementById("precio_total").value = Precio_Resultado / 100;
+
   }
 
   function mostrarMensaje(mensaje) {
