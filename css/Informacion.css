@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(77,77,77);
+    background-color: rgb(18, 43, 102) !important;
 }
 
 
@@ -82,8 +82,8 @@ body{
     align-items: center; /* Alineación vertical */
 }
     .ImagenInformacion{
-        height: 100%;
-        width: 100%;
+        height: 80%;
+        width: 80%;
     }
 .CuadroTexto1{
     padding: 10px;

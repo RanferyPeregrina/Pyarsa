@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2024 a las 13:25:50
+-- Tiempo de generación: 19-11-2024 a las 03:05:10
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -78,7 +78,14 @@ INSERT INTO `detalles_pedido` (`id_detalle`, `id_pedido`, `id_producto`, `cantid
 (10, 15, 6, 261, 343),
 (11, 15, 8, 35, 520),
 (12, 16, 3, 56, 390),
-(13, 17, 11, 17, 385);
+(13, 17, 11, 17, 385),
+(14, 18, 3, 129, 390),
+(15, 18, 5, 69, 820),
+(16, 18, 1, 56, 385),
+(17, 19, 1, 74, 385),
+(18, 19, 8, 50, 520),
+(19, 20, 1, 1, 385),
+(20, 20, 8, 4, 520);
 
 -- --------------------------------------------------------
 
@@ -106,7 +113,6 @@ CREATE TABLE `envios` (
   `id_pedido` int(10) NOT NULL,
   `fecha_envio` date NOT NULL,
   `fecha_entrega` date NOT NULL,
-  `estado_envio` varchar(10) NOT NULL,
   `empresa_envio` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -117,11 +123,40 @@ CREATE TABLE `envios` (
 --
 
 CREATE TABLE `inventario` (
-  `id_inventario` int(10) NOT NULL,
   `id_producto` int(10) NOT NULL,
   `cantidad_disponible` int(10) NOT NULL,
   `fecha_actualizacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `inventario`
+--
+
+INSERT INTO `inventario` (`id_producto`, `cantidad_disponible`, `fecha_actualizacion`) VALUES
+(1, 398, '2024-11-17'),
+(2, 400, '2024-11-17'),
+(3, 400, '2024-11-17'),
+(4, 400, '2024-11-17'),
+(5, 400, '2024-11-17'),
+(6, 400, '2024-11-17'),
+(7, 400, '2024-11-17'),
+(8, 392, '2024-11-17'),
+(9, 400, '2024-11-17'),
+(10, 400, '2024-11-17'),
+(11, 400, '2024-11-17'),
+(12, 400, '2024-11-17'),
+(13, 400, '2024-11-17'),
+(14, 400, '2024-11-17'),
+(15, 400, '2024-11-17'),
+(16, 400, '2024-11-17'),
+(17, 400, '2024-11-17'),
+(18, 400, '2024-11-17'),
+(19, 400, '2024-11-17'),
+(20, 400, '2024-11-17'),
+(21, 400, '2024-11-17'),
+(22, 400, '2024-11-17'),
+(23, 400, '2024-11-17'),
+(24, 400, '2024-11-17');
 
 -- --------------------------------------------------------
 
@@ -164,7 +199,10 @@ CREATE TABLE `pagos` (
 
 INSERT INTO `pagos` (`id_pago`, `id_pedido`, `id_metodoPago`, `fecha_pago`, `monto_pagado`) VALUES
 (6, 15, 0, '2024-11-18', 136213),
-(7, 17, 0, '2024-11-18', 6545);
+(7, 17, 0, '2024-11-18', 6545),
+(8, 18, 0, '2024-11-18', 128450),
+(9, 19, 0, '2024-11-19', 54490),
+(10, 20, 0, '2024-11-19', 2465);
 
 -- --------------------------------------------------------
 
@@ -177,7 +215,7 @@ CREATE TABLE `pedidos` (
   `id_usuario` int(5) NOT NULL,
   `fecha_pedido` date NOT NULL,
   `total_pedido` float NOT NULL,
-  `estado_pedido` varchar(9) NOT NULL
+  `estado_pedido` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -185,9 +223,7 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id_pedido`, `id_usuario`, `fecha_pedido`, `total_pedido`, `estado_pedido`) VALUES
-(14, 3, '2024-10-27', 28490, 'Rechazado'),
-(16, 3, '2024-11-18', 21840, 'Entregado'),
-(17, 3, '2024-11-18', 6545, 'Completad');
+(20, 3, '2024-11-19', 2465, 'En tránsito');
 
 -- --------------------------------------------------------
 
@@ -199,39 +235,38 @@ CREATE TABLE `productos` (
   `id_producto` int(10) NOT NULL,
   `nombre_producto` varchar(50) NOT NULL,
   `precio_producto` float NOT NULL,
-  `descripcion_producto` varchar(100) NOT NULL,
-  `stock_producto` int(9) NOT NULL
+  `descripcion_producto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `nombre_producto`, `precio_producto`, `descripcion_producto`, `stock_producto`) VALUES
-(1, 'Piso Cerámico', 385, 'Material: cerámica. brinda gran recubrimiento en espacios interiores del hogar. Tamaño: 33x33cm', 130),
-(2, 'Piso Olmoso', 420, 'Cerámico esmaltado, para espacios exterior, tamaño: 37x37cm', 130),
-(3, 'Piso Alder', 390, 'cerámica Piso cerámico para cubrir tus espacios en el interior o exterior. Tamaño: 33x33cm', 103),
-(4, 'Piso cerámico león', 385, 'Es resistente a las manchas, productos químicos, la abrasión en grado III, rayos uv y no es flamable', 103),
-(5, 'Piso Maui', 820, 'Material: marmol Puede instalarse en espacios en el interior como exterior. 44x44cm', 10),
-(6, 'Piso Praga', 343, 'absorción de agua de 3-7%, es resistente a las sustancias químicas y manchas. Tamaño: 50x50cm', 103),
-(7, 'Piso Rocalla', 456, 'Recomendado para interior y exterior, para áreas como cocina, recámara y comedor. Tamaño: 55x5', 103),
-(8, 'Piso Allpess Multicolor', 520, 'Porcelana Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 45x45 cm', 103),
-(9, 'Piso Gale', 385, 'Porcelana Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 43x43cm', 300),
-(10, 'Piso Mixtone', 560, 'Cemento, Brinda gran recubrimiento en espacios de uso comercial con tráfico ligero. Tamaño: 50x50cm', 103),
-(11, 'Piso Hábitat', 385, 'Cerámica Apta para instalar en interiores como recámaras, baños, salas. Tamaño: 60x60cm', 220),
-(12, 'Piso época', 400, 'Cemento, Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 20x20 cm', 222),
-(13, 'Piso cerámico tranto', 420, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 222),
-(14, 'Piso ceramico copana', 560, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 222),
-(15, 'Piso greta', 460, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 37x37 cm', 222),
-(16, 'Piso cerámico caruzzo', 440, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 222),
-(17, 'Piso ceramico tamaran', 380, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 222),
-(18, 'Piso cerámico gutan', 280, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 222),
-(19, 'Piso morelos', 320, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 222),
-(20, 'Piso marbele', 385, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm', 222),
-(21, 'Piso Volkano Grafito', 155, 'Ceramico acabado mate tipo piedra estructurada en diferentes tonos de grises. Tamaño: 45x45cm', 10),
-(22, 'Piso Leira', 125, 'Porcelana Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 43x43cm', 10),
-(23, 'Piso Asis', 135, 'Material: cerámica Piso cerámico marca daltile modelo asis color gris Tamaño: 37x37cm', 10),
-(24, 'Piso Chert', 199, 'Ceramica acabado mate en color anis que brinda gran recubrimiento en espacios. Tamaño: 35.7x35.7 cm', 10);
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `precio_producto`, `descripcion_producto`) VALUES
+(1, 'Piso Cerámico', 385, 'Material: cerámica. brinda gran recubrimiento en espacios interiores del hogar. Tamaño: 33x33cm'),
+(2, 'Piso Olmoso', 420, 'Cerámico esmaltado, para espacios exterior, tamaño: 37x37cm'),
+(3, 'Piso Alder', 390, 'cerámica Piso cerámico para cubrir tus espacios en el interior o exterior. Tamaño: 33x33cm'),
+(4, 'Piso cerámico león', 385, 'Es resistente a las manchas, productos químicos, la abrasión en grado III, rayos uv y no es flamable'),
+(5, 'Piso Maui', 820, 'Material: marmol Puede instalarse en espacios en el interior como exterior. 44x44cm'),
+(6, 'Piso Praga', 343, 'absorción de agua de 3-7%, es resistente a las sustancias químicas y manchas. Tamaño: 50x50cm'),
+(7, 'Piso Rocalla', 456, 'Recomendado para interior y exterior, para áreas como cocina, recámara y comedor. Tamaño: 55x5'),
+(8, 'Piso Allpess Multicolor', 520, 'Porcelana Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 45x45 cm'),
+(9, 'Piso Gale', 385, 'Porcelana Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 43x43cm'),
+(10, 'Piso Mixtone', 560, 'Cemento, Brinda gran recubrimiento en espacios de uso comercial con tráfico ligero. Tamaño: 50x50cm'),
+(11, 'Piso Hábitat', 385, 'Cerámica Apta para instalar en interiores como recámaras, baños, salas. Tamaño: 60x60cm'),
+(12, 'Piso época', 400, 'Cemento, Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 20x20 cm'),
+(13, 'Piso cerámico tranto', 420, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm'),
+(14, 'Piso ceramico copana', 560, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm'),
+(15, 'Piso greta', 460, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 37x37 cm'),
+(16, 'Piso cerámico caruzzo', 440, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm'),
+(17, 'Piso ceramico tamaran', 380, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm'),
+(18, 'Piso cerámico gutan', 280, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm'),
+(19, 'Piso morelos', 320, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm'),
+(20, 'Piso marbele', 385, 'Recubrimiento perfecto para tu hogar, ofrece una excelente cobertura. Con su tamaño de 33x3 cm'),
+(21, 'Piso Volkano Grafito', 155, 'Ceramico acabado mate tipo piedra estructurada en diferentes tonos de grises. Tamaño: 45x45cm'),
+(22, 'Piso Leira', 125, 'Porcelana Para uso en piso y pared, recomendado para interior y exterior. Tamaño: 43x43cm'),
+(23, 'Piso Asis', 135, 'Material: cerámica Piso cerámico marca daltile modelo asis color gris Tamaño: 37x37cm'),
+(24, 'Piso Chert', 199, 'Ceramica acabado mate en color anis que brinda gran recubrimiento en espacios. Tamaño: 35.7x35.7 cm');
 
 -- --------------------------------------------------------
 
@@ -267,9 +302,9 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `correo`, `Contra`, `Domicilio`, `Telefono`, `tipo_usuario`) VALUES
 (1, 'Nombre1', 'Nombre1@ejemplo.com', 'a2', 'asdasdsadasd', '1234', 0),
-(3, 'Ranfery', 'correoprueba@hotmail.com', 'asdf', 'AAA', '12345678', 0),
+(3, 'Ranfery', 'correoprueba@hotmail.com', 'asdf', 'Calle de ejemplo, Av. Ejemplo, Num. Ejemplo', '12345678', 0),
 (5, 'Ranfery2', 'correo2@hotmail.com', 'asdf', 'Calle de ejemplo. Av Ejemplo, #100, Col. Ejemplo, Ciudad ejemplo, NL.', '8125361954', 0),
-(6, 'Admin', 'admin@gmail.com', 'admin', '.', '1', 1);
+(6, 'Admin', 'admin@gmail.com', 'admin', '', '1', 1);
 
 --
 -- Índices para tablas volcadas
@@ -314,8 +349,8 @@ ALTER TABLE `envios`
 -- Indices de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  ADD PRIMARY KEY (`id_inventario`),
-  ADD UNIQUE KEY `id_producto` (`id_producto`);
+  ADD PRIMARY KEY (`id_producto`),
+  ADD KEY `id_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `metodos_pago`
@@ -373,19 +408,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `carrito_compras`
 --
 ALTER TABLE `carrito_compras`
-  MODIFY `id_carrito` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_carrito` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT de la tabla `detalles_pedido`
 --
 ALTER TABLE `detalles_pedido`
-  MODIFY `id_detalle` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_detalle` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `id_inventario` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `metodos_pago`
@@ -397,13 +432,13 @@ ALTER TABLE `metodos_pago`
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id_pago` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pago` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_pedido` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

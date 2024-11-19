@@ -14,7 +14,7 @@ $fecha_pedido = date("Y-m-d H:i:s");
 $estado_pedido = 'Pendiente';
 $domicilio = 'Dirección proporcionada o a definir'; // Esto lo puedes actualizar según el flujo de la app.
 
-$query_pedido = "INSERT INTO pedidos (id_usuario, fecha_pedido, total_pedido, estado_pedido, domicilio) VALUES ('$id_usuario', '$fecha_pedido', 0, '$estado_pedido', '$domicilio')";
+$query_pedido = "INSERT INTO pedidos (id_usuario, fecha_pedido, total_pedido, estado_pedido) VALUES ('$id_usuario', '$fecha_pedido', 0, '$estado_pedido')";
 mysqli_query($conexion, $query_pedido);
 
 // Obtener el ID del pedido recién creado

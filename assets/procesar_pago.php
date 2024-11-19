@@ -19,7 +19,7 @@ $query_pago = "INSERT INTO pagos (id_pedido, id_metodoPago, fecha_pago, monto_pa
 mysqli_query($conexion, $query_pago);
 
 // Actualizar el estado del pedido a 'Completado'
-$query_actualizar_pedido = "UPDATE pedidos SET estado_pedido = 'Completado' WHERE id_pedido = '$id_pedido'";
+$query_actualizar_pedido = "UPDATE pedidos SET estado_pedido = 'Pendiente' WHERE id_pedido = '$id_pedido'";
 mysqli_query($conexion, $query_actualizar_pedido);
 
 // Redirigir a una página de confirmación de compra
