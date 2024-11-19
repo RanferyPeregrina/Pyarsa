@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2024 a las 03:05:10
+-- Tiempo de generación: 19-11-2024 a las 21:38:08
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -47,6 +47,19 @@ CREATE TABLE `categorias_productos` (
   `descripcion_categoria` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `categorias_productos`
+--
+
+INSERT INTO `categorias_productos` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`) VALUES
+(1, 'Electrónica', 'Productos relacionados con dispositivos electrónicos, como teléfonos, computadoras, y accesorios.'),
+(2, 'Hogar', 'Productos para el hogar, incluyendo muebles, decoración y electrodomésticos.'),
+(3, 'Ropa', 'Prendas de vestir para hombres, mujeres y niños.'),
+(4, 'Deportes', 'Equipo y accesorios deportivos para diversas actividades.'),
+(5, 'Juguetes', 'Juguetes para niños de todas las edades.'),
+(6, 'Libros', 'Libros de diferentes géneros y para todas las edades.'),
+(7, 'Jardinería', 'Herramientas, plantas y accesorios para el jardín.');
+
 -- --------------------------------------------------------
 
 --
@@ -85,7 +98,11 @@ INSERT INTO `detalles_pedido` (`id_detalle`, `id_pedido`, `id_producto`, `cantid
 (17, 19, 1, 74, 385),
 (18, 19, 8, 50, 520),
 (19, 20, 1, 1, 385),
-(20, 20, 8, 4, 520);
+(20, 20, 8, 4, 520),
+(21, 21, 1, 1, 385),
+(22, 22, 3, 74, 390),
+(23, 24, 4, 108, 385),
+(24, 27, 1, 1, 385);
 
 -- --------------------------------------------------------
 
@@ -96,11 +113,24 @@ INSERT INTO `detalles_pedido` (`id_detalle`, `id_pedido`, `id_producto`, `cantid
 CREATE TABLE `direcciones_usuarios` (
   `id_direccion` int(10) NOT NULL,
   `id_usuario` int(10) NOT NULL,
-  `calle` varchar(10) NOT NULL,
-  `ciudad` varchar(12) NOT NULL,
-  `estado` varchar(12) NOT NULL,
+  `calle` varchar(30) NOT NULL,
+  `ciudad` varchar(20) NOT NULL,
+  `estado` varchar(20) NOT NULL,
   `codigo_postal` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `direcciones_usuarios`
+--
+
+INSERT INTO `direcciones_usuarios` (`id_direccion`, `id_usuario`, `calle`, `ciudad`, `estado`, `codigo_postal`) VALUES
+(1, 101, 'Calle Prim', 'Ciudad de Mé', 'CDMX', 1000),
+(2, 102, 'Avenida Ce', 'Monterrey', 'Nuevo León', 64000),
+(3, 103, 'Boulevard de los Reyes #789', 'Puebla', 'Puebla', 72000),
+(4, 104, 'Callejón del Sol #321', 'Guadalajara', 'Jalisco', 44100),
+(5, 105, 'Avenida Reforma #654', 'Querétaro', 'Querétaro', 76000),
+(6, 106, 'Calle Independencia #987', 'Cancún', 'Quintana Roo', 77500),
+(7, 107, 'Calle Hidalgo #213', 'San Luis Potosí', 'San Luis Potosí', 78000);
 
 -- --------------------------------------------------------
 
@@ -113,8 +143,19 @@ CREATE TABLE `envios` (
   `id_pedido` int(10) NOT NULL,
   `fecha_envio` date NOT NULL,
   `fecha_entrega` date NOT NULL,
-  `empresa_envio` varchar(10) NOT NULL
+  `empresa_envio` varchar(17) NOT NULL DEFAULT 'Correos de México'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `envios`
+--
+
+INSERT INTO `envios` (`id_envio`, `id_pedido`, `fecha_envio`, `fecha_entrega`, `empresa_envio`) VALUES
+(1, 24, '2024-11-19', '2024-11-24', 'Empresa X'),
+(2, 20, '2024-11-19', '2024-11-24', 'Correos de México'),
+(3, 20, '2024-11-19', '2024-11-24', 'Correos de México'),
+(4, 20, '2024-11-19', '2024-11-24', 'Correos de México'),
+(5, 20, '2024-11-19', '2024-11-24', 'Correos de México');
 
 -- --------------------------------------------------------
 
@@ -133,14 +174,14 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id_producto`, `cantidad_disponible`, `fecha_actualizacion`) VALUES
-(1, 398, '2024-11-17'),
+(1, 397, '2024-11-17'),
 (2, 400, '2024-11-17'),
-(3, 400, '2024-11-17'),
-(4, 400, '2024-11-17'),
+(3, 178, '2024-11-17'),
+(4, 292, '2024-11-17'),
 (5, 400, '2024-11-17'),
 (6, 400, '2024-11-17'),
 (7, 400, '2024-11-17'),
-(8, 392, '2024-11-17'),
+(8, 388, '2024-11-17'),
 (9, 400, '2024-11-17'),
 (10, 400, '2024-11-17'),
 (11, 400, '2024-11-17'),
@@ -166,7 +207,7 @@ INSERT INTO `inventario` (`id_producto`, `cantidad_disponible`, `fecha_actualiza
 
 CREATE TABLE `metodos_pago` (
   `id_metodoPago` int(10) NOT NULL,
-  `tipo_metodoPago` varchar(10) NOT NULL,
+  `tipo_metodoPago` varchar(20) NOT NULL,
   `descripcion_metodoPago` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -175,9 +216,9 @@ CREATE TABLE `metodos_pago` (
 --
 
 INSERT INTO `metodos_pago` (`id_metodoPago`, `tipo_metodoPago`, `descripcion_metodoPago`) VALUES
-(1, 'Tarjeta de', 'Tarjeta bancaria con valor de crédito.'),
-(2, 'Ecectivo', 'Pague en efectivo al recibir o llegar a una sucursal'),
-(3, 'Tarjeta de', 'Tarjeta de nómina con ahorro bancario');
+(1, 'Tarjeta de crédito', 'Tarjeta bancaria con valor de crédito.'),
+(2, 'Efectivo', 'Pague en efectivo al recibir o llegar a una sucursal'),
+(3, 'Tarjeta de débito', 'Tarjeta de nómina con ahorro bancario');
 
 -- --------------------------------------------------------
 
@@ -202,7 +243,11 @@ INSERT INTO `pagos` (`id_pago`, `id_pedido`, `id_metodoPago`, `fecha_pago`, `mon
 (7, 17, 0, '2024-11-18', 6545),
 (8, 18, 0, '2024-11-18', 128450),
 (9, 19, 0, '2024-11-19', 54490),
-(10, 20, 0, '2024-11-19', 2465);
+(10, 20, 0, '2024-11-19', 2465),
+(11, 21, 0, '2024-11-19', 385),
+(12, 24, 0, '2024-11-19', 41580),
+(13, 25, 0, '2024-11-19', 0),
+(14, 27, 0, '2024-11-19', 385);
 
 -- --------------------------------------------------------
 
@@ -215,15 +260,22 @@ CREATE TABLE `pedidos` (
   `id_usuario` int(5) NOT NULL,
   `fecha_pedido` date NOT NULL,
   `total_pedido` float NOT NULL,
-  `estado_pedido` varchar(15) NOT NULL
+  `estado_pedido` varchar(15) NOT NULL,
+  `descuento_aplicado` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `pedidos`
 --
 
-INSERT INTO `pedidos` (`id_pedido`, `id_usuario`, `fecha_pedido`, `total_pedido`, `estado_pedido`) VALUES
-(20, 3, '2024-11-19', 2465, 'En tránsito');
+INSERT INTO `pedidos` (`id_pedido`, `id_usuario`, `fecha_pedido`, `total_pedido`, `estado_pedido`, `descuento_aplicado`) VALUES
+(20, 3, '2024-11-19', 2465, 'Entregado', 1),
+(21, 3, '2024-11-19', 385, 'Pendiente', 0),
+(23, 3, '2024-11-19', 0, 'Pendiente', 0),
+(24, 3, '2024-11-19', 41580, 'Entregado', 1),
+(25, 5, '2024-11-19', 0, 'Pendiente', 0),
+(26, 5, '2024-11-19', 0, 'Pendiente', 0),
+(27, 5, '2024-11-19', 385, 'Pendiente', 0);
 
 -- --------------------------------------------------------
 
@@ -280,6 +332,14 @@ CREATE TABLE `tipos_usuario` (
   `descripcion_tipo_usuario` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `tipos_usuario`
+--
+
+INSERT INTO `tipos_usuario` (`id_usuario`, `id_tipo_usuario`, `descripcion_tipo_usuario`) VALUES
+(1, 1, 'Administrador - Tiene acceso completo al sistema y puede rea'),
+(2, 0, 'Comprador - Puede realizar compras y ver sus pedidos, pero n');
+
 -- --------------------------------------------------------
 
 --
@@ -301,7 +361,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `correo`, `Contra`, `Domicilio`, `Telefono`, `tipo_usuario`) VALUES
-(1, 'Nombre1', 'Nombre1@ejemplo.com', 'a2', 'asdasdsadasd', '1234', 0),
+(1, 'Nombre1', 'Nombre1@ejemplo.com', 'a2', 'Calle de ejemplo. Avenida 212, Col.Guerra, Guadalupe NL.', '1234', 0),
 (3, 'Ranfery', 'correoprueba@hotmail.com', 'asdf', 'Calle de ejemplo, Av. Ejemplo, Num. Ejemplo', '12345678', 0),
 (5, 'Ranfery2', 'correo2@hotmail.com', 'asdf', 'Calle de ejemplo. Av Ejemplo, #100, Col. Ejemplo, Ciudad ejemplo, NL.', '8125361954', 0),
 (6, 'Admin', 'admin@gmail.com', 'admin', '', '1', 1);
@@ -408,13 +468,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `carrito_compras`
 --
 ALTER TABLE `carrito_compras`
-  MODIFY `id_carrito` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_carrito` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de la tabla `detalles_pedido`
 --
 ALTER TABLE `detalles_pedido`
-  MODIFY `id_detalle` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_detalle` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT de la tabla `envios`
+--
+ALTER TABLE `envios`
+  MODIFY `id_envio` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `inventario`
@@ -432,13 +498,13 @@ ALTER TABLE `metodos_pago`
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id_pago` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pago` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_pedido` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

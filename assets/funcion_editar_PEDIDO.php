@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
         
         if (mysqli_query($conexion, $actualizar_usuario)) {
             echo "Domicilio actualizado correctamente.<br>";
-        }
+        }header("Administracion.php"); 
 
         // Verificar si el estado es "En tránsito", "Entregado" o "Completado"
         if (in_array($estado_pedido, ['En tránsito', 'Entregado', 'Completado'])) {
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
                 $actualizar_descuento = "UPDATE pedidos SET descuento_aplicado = 1 WHERE id_pedido = '$id_pedido'";
                 mysqli_query($conexion, $actualizar_descuento);
             }
-
+            header("Administracion.php"); 
             // Si el estado es "En tránsito", registrar el envío en la tabla envios
             if ($estado_pedido === 'En tránsito') {
                 // Calcular la fecha de entrega a 5 días
@@ -92,13 +92,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
                     echo "Envío registrado correctamente en la tabla envíos.<br>";
                 } else {
                     echo "Error al registrar el envío: " . mysqli_error($conexion) . "<br>";
-                }
+                }header("Administracion.php"); 
             }
-        }   header("Administracion.php"); 
+        }           header("Location: Administracion.php");
     } else {
         echo "Error al actualizar los datos del pedido: " . mysqli_error($conexion);
-    }
+    }header("Administracion.php");
 }
+header("Location: Administracion.php");
 mysqli_close($conexion);
 ?>
 
