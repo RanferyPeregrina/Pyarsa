@@ -52,6 +52,10 @@ $resultado = mysqli_query($conexion, query: $query);
             
             <?php
             $total = 0;
+
+            // Comprueba si hay productos en el carrito
+    if (mysqli_num_rows($resultado) > 0) {
+        // Mostrar productos en el carrito
             while ($fila = mysqli_fetch_assoc($resultado)) {
                 $subtotal = $fila['precio_total'];
                 $total += $subtotal;
@@ -68,14 +72,26 @@ $resultado = mysqli_query($conexion, query: $query);
             </tr>
             <?php } ?>
             
+            }
             <tr id ="Fila_Total">
                 <td id="Texto_Total" colspan="3">Total</td>
                 <td colspan="1"><?php echo "$" . number_format($total, 2); ?></td>
                 <td onclick="location.href='procesar_pedido.php';" id="Boton_FinalizarCompra"><a href="procesar_pedido.php">Finalizar Compra</a></td>
             </tr>
+            <?php
+    } else {
+        // Si el carrito está vacío
+        echo "<tr><td colspan='5'>Tu carrito está vacío</td></tr>";
+    }
+    ?>
         </table>
-
         <br>
+
+        <div id="ContenedorBoton" class="continer">
+            <a id="Boton_SeguirComprando" href="../Tienda.php"><button>Seguir comprando</button></a>
+        </div>
+
+
 
     </div>
 </body>
