@@ -40,44 +40,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
             echo "Domicilio actualizado correctamente.<br>";
         }
 
-        // Verificar si el estado es "En tránsito", "Entregado" o "Completado" para actualizar el inventario
+        // Verificar si el estado es "En tránsito", "Entregado" o "Completado"
         if (in_array($estado_pedido, ['En tránsito', 'Entregado', 'Completado'])) {
-            // Consultar los detalles del pedido
-            $consulta_detalles = "SELECT id_producto, cantidad FROM detalles_pedido WHERE id_pedido='$id_pedido'";
-            $resultado_detalles = mysqli_query($conexion, $consulta_detalles);
+            // Consultar si el descuento ya se ha aplicado
+            $verificar_descuento = "SELECT descuento_aplicado FROM pedidos WHERE id_pedido='$id_pedido'";
+            $resultado_descuento = mysqli_query($conexion, $verificar_descuento);
+            $descuento = mysqli_fetch_assoc($resultado_descuento);
 
-            // Recorrer cada producto en el pedido y descontar del inventario
-            while ($detalle = mysqli_fetch_assoc($resultado_detalles)) {
-                $id_producto = $detalle['id_producto'];
-                $cantidad = $detalle['cantidad'];
+            if (!$descuento['descuento_aplicado']) {
+                // Consultar los detalles del pedido
+                $consulta_detalles = "SELECT id_producto, cantidad FROM detalles_pedido WHERE id_pedido='$id_pedido'";
+                $resultado_detalles = mysqli_query($conexion, $consulta_detalles);
 
-                // Verificar el inventario disponible antes de descontar
-                $verificar_inventario = "SELECT cantidad_disponible FROM inventario WHERE id_producto = '$id_producto'";
-                $resultado_verificacion = mysqli_query($conexion, $verificar_inventario);
-                $inventario = mysqli_fetch_assoc($resultado_verificacion);
+                // Recorrer cada producto en el pedido y descontar del inventario
+                while ($detalle = mysqli_fetch_assoc($resultado_detalles)) {
+                    $id_producto = $detalle['id_producto'];
+                    $cantidad = $detalle['cantidad'];
 
-                if ($inventario['cantidad_disponible'] >= $cantidad) {
-                    // Descontar la cantidad del inventario
-                    $actualizar_inventario = "UPDATE inventario SET cantidad_disponible = cantidad_disponible - $cantidad WHERE id_producto = '$id_producto'";
-                    if (mysqli_query($conexion, $actualizar_inventario)) {
-                        echo "Inventario actualizado correctamente para el producto ID $id_producto.<br>";
+                    // Verificar el inventario disponible antes de descontar
+                    $verificar_inventario = "SELECT cantidad_disponible FROM inventario WHERE id_producto = '$id_producto'";
+                    $resultado_verificacion = mysqli_query($conexion, $verificar_inventario);
+                    $inventario = mysqli_fetch_assoc($resultado_verificacion);
+
+                    if ($inventario['cantidad_disponible'] >= $cantidad) {
+                        // Descontar la cantidad del inventario
+                        $actualizar_inventario = "UPDATE inventario SET cantidad_disponible = cantidad_disponible - $cantidad WHERE id_producto = '$id_producto'";
+                        if (mysqli_query($conexion, $actualizar_inventario)) {
+                            echo "Inventario actualizado correctamente para el producto ID $id_producto.<br>";
+                        } else {
+                            echo "Error al actualizar inventario para el producto ID $id_producto: " . mysqli_error($conexion) . "<br>";
+                        }
                     } else {
-                        echo "Error al actualizar inventario para el producto ID $id_producto: " . mysqli_error($conexion) . "<br>";
+                        echo "Error: Inventario insuficiente para el producto ID $id_producto.<br>";
                     }
+                }
+
+                // Marcar el descuento como aplicado
+                $actualizar_descuento = "UPDATE pedidos SET descuento_aplicado = 1 WHERE id_pedido = '$id_pedido'";
+                mysqli_query($conexion, $actualizar_descuento);
+            }
+
+            // Si el estado es "En tránsito", registrar el envío en la tabla envios
+            if ($estado_pedido === 'En tránsito') {
+                // Calcular la fecha de entrega a 5 días
+                $fecha_envio = date('Y-m-d');
+                $fecha_entrega = date('Y-m-d', strtotime('+5 days'));
+
+                // Registrar el envío
+                $insertar_envio = "INSERT INTO envios (id_pedido, fecha_envio, fecha_entrega, empresa_envio) VALUES ('$id_pedido', '$fecha_envio', '$fecha_entrega', 'Correos de México')";
+                if (mysqli_query($conexion, $insertar_envio)) {
+                    echo "Envío registrado correctamente en la tabla envíos.<br>";
                 } else {
-                    echo "Error: Inventario insuficiente para el producto ID $id_producto.<br>";
+                    echo "Error al registrar el envío: " . mysqli_error($conexion) . "<br>";
                 }
             }
-        }   
-        // Redirigir a la página de administración u otra según tu flujo
-        header("Location: Administracion.php");
-        exit();
-
+        }   header("Administracion.php"); 
     } else {
         echo "Error al actualizar los datos del pedido: " . mysqli_error($conexion);
     }
 }
-
 mysqli_close($conexion);
 ?>
 <!DOCTYPE html>
