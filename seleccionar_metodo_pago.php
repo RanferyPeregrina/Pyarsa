@@ -27,13 +27,25 @@ while ($fila = mysqli_fetch_assoc($resultado_pedidos)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/seleccionar_metodo_pago.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
     <title>Métodos de pago</title>
 </head>
 <body>
     
-    <h2>Finalizar Compra</h2>
-    <p>Total a pagar: $<?php echo htmlspecialchars($total_pedido); ?></p>
+    
+<header>
+    <?php include 'assets/header.php'; ?>
+    </header>
 
+    <div class="container">
+
+    <div class="contenedor_secundario">
+    <h1>Finalizar Compra🎉✨</h1>
+    </div>
+    <div id="Formulario_Compra" class="contenedor_secundario">
+    <p id="Total_Pagar">Total a pagar: $<?php echo htmlspecialchars($total_pedido); ?></p>
 
     <form action="assets/procesar_pago.php" method="POST">
         <input type="hidden" name="id_pedido" value="<?php echo htmlspecialchars($id_pedido); ?>">
@@ -48,30 +60,48 @@ while ($fila = mysqli_fetch_assoc($resultado_pedidos)) {
         </select>
 
         <!-- Campos adicionales para tarjeta de crédito/débito -->
-        <div id="datos_tarjeta" style="display: none;">
-            <label for="numero_tarjeta">Número de tarjeta:</label>
-            <input type="text" name="numero_tarjeta" id="numero_tarjeta" maxlength="16" placeholder="XXXX-XXXX-XXXX-XXXX">
+        <div id="datos_tarjeta" style="display: none">
+        <div class="row">
+                    <label for="numero_tarjeta">Número de tarjeta:</label>
+                    <input type="text" name="numero_tarjeta" id="numero_tarjeta" maxlength="16" placeholder="XXXX-XXXX-XXXX-XXXX">
 
-            <label for="fecha_vencimiento">Fecha de vencimiento:</label>
-            <input type="text" name="fecha_vencimiento" id="fecha_vencimiento" placeholder="MM/AA">
+                </div>
+            <div class="row">
+                    <label for="fecha_vencimiento">Fecha de vencimiento:</label>
+                    <input type="text" name="fecha_vencimiento" id="fecha_vencimiento" placeholder="MM/AA">
 
-            <label for="codigo_cvc">CVC:</label>
-            <input type="text" name="codigo_cvc" id="codigo_cvc" maxlength="3" placeholder="123">
+                </div>
+                <div class="row">
+                
+                    <label for="codigo_cvc">CVC:</label>
+                    <input type="text" name="codigo_cvc" id="codigo_cvc" maxlength="3" placeholder="123">
+                </div>
         </div>
-
+        <div id="datos_efectivo" style="display: none">
+            <h3>
+                Paga al recibir tu compra
+            </h3>
+        </div>
         <!-- Botón de envío -->
-        <button type="submit">Pagar</button>
+        <button type="submit">Pagar 💸</button>
     </form>
+    </div>
+
+
+    </div>
 
 <script>
 function mostrarCamposExtra() {
     var metodoPago = document.getElementById("metodo_pago").value;
     var datosTarjeta = document.getElementById("datos_tarjeta");
+    var datosEfectivo = document.getElementById("datos_efectivo");
 
     // Muestra los campos de tarjeta solo si el método de pago es crédito o débito (1 o 3)
     if (metodoPago == "1" || metodoPago == "3") {
         datosTarjeta.style.display = "block";
+        datosEfectivo.style.display = "none"
     } else {
+        datosEfectivo.style.display = "block";
         datosTarjeta.style.display = "none";
     }
 }
