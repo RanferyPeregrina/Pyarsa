@@ -33,13 +33,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
 mysqli_close($conexion);
 ?>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar usuario</title>
+    <link rel="stylesheet" href="../css/funcion_editar_PEDIDO.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    
+    <h1>Modificar usuario</h1>
+    <div class="container">
+        
 <!-- Formulario de edición -->
-<form action="funcion_editar_USUARIO.php" method="POST">
-    <input type="hidden" name="id_usuario" value="<?php echo $usuario['id_usuario']; ?>">
-    Nombre: <input type="text" name="nombre" value="<?php echo $usuario['nombre']; ?>"><br>
-    Correo: <input type="text" name="correo" value="<?php echo $usuario['correo']; ?>"><br>
-    Contraseña: <input type="text" name="Contra" value="<?php echo $usuario['Contra']; ?>"><br>
-    Domicilio: <input type="text" name="Domicilio" value="<?php echo $usuario['Domicilio']; ?>"><br>
-    Teléfono: <input type="text" name="Telefono" value="<?php echo $usuario['Telefono']; ?>"><br>
-    <button type="submit" name="guardar">Guardar Cambios</button>
-</form>
+        <form class ="row" action="funcion_editar_USUARIO.php" method="POST">
+            <input type="hidden" name="id_usuario" value="<?php echo $usuario['id_usuario']; ?>">
+            Nombre: <input type="text" name="nombre" value="<?php echo $usuario['nombre']; ?>"><br>
+            Correo: <input type="text" name="correo" value="<?php echo $usuario['correo']; ?>"><br>
+            Contraseña: <input type="text" name="Contra" value="<?php echo $usuario['Contra']; ?>"><br>
+            Domicilio: <input type="text" name="Domicilio" value="<?php echo $usuario['Domicilio']; ?>"><br>
+            Teléfono: <input type="text" name="Telefono" value="<?php echo $usuario['Telefono']; ?>"><br>
+            <button type="submit" name="guardar">Guardar Cambios</button>
+        </form>
+
+    </div>
+</body>
+</html>
+

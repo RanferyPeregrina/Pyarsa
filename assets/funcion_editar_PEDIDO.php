@@ -101,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
 }
 mysqli_close($conexion);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,60 +116,59 @@ mysqli_close($conexion);
     <h1>Modificar pedido</h1>
 
 <!-- Formulario de edición -->
- <div class="container">
-<form action="funcion_editar_PEDIDO.php" method="POST">
-<div class="row FilaPricipal">
-    <h2>Pedido de <?php echo $pedido['nombre']; ?></h2>
-    <input type="hidden" name="id_pedido" value="<?php echo $pedido['id_pedido']; ?>">
-    <input type="hidden" name="id_usuario" value="<?php echo $pedido['id_usuario']; ?>"> <!-- Agregar este campo oculto -->
+        <div class="container">
+        <form action="funcion_editar_PEDIDO.php" method="POST">
+        <div class="row FilaPricipal">
+            <h2>Pedido de <?php echo $pedido['nombre']; ?></h2>
+            <input type="hidden" name="id_pedido" value="<?php echo $pedido['id_pedido']; ?>">
+            <input type="hidden" name="id_usuario" value="<?php echo $pedido['id_usuario']; ?>"> <!-- Agregar este campo oculto -->
 
-    <div class="col-6">
-        <div class="row fila_formulario">
-            <label for="fecha_pedido">Fecha del pedido: </label>
+            <div class="col-6">
+                <div class="row fila_formulario">
+                    <label for="fecha_pedido">Fecha del pedido: </label>
+                </div>
+        
+                <div class="row fila_formulario">
+                    <label for="Domicilio">Domicilio del cliente: </label>
+                </div>
+            
+                <div class="row fila_formulario">
+                    <label for="estado_pedido">Estado del pedido: </label>
+                </div>
+            </div>
+
+            <!-- Esta es la parte derecha del formulario --------------- -->
+            
+            <div class="col-6">
+                <div class="row fila_formulario">
+                <input type="date" name="fecha_pedido" value="<?php echo $pedido['fecha_pedido']; ?>"><br>
+                </div>
+        
+                <div class="row fila_formulario">
+                <input type="text" name="Domicilio" value="<?php echo $pedido['Domicilio']; ?>"><br>
+                </div>
+            
+                <div class="row fila_formulario">
+                <select name="estado_pedido" id="estado_pedido">
+                    <option value="Pendiente" <?php if ($pedido['estado_pedido'] == 'Pendiente') echo 'selected'; ?>>Pendiente</option>
+                    <option value="En tránsito" <?php if ($pedido['estado_pedido'] == 'En tránsito') echo 'selected'; ?>>En tránsito</option>
+                    <option value="Entregado" <?php if ($pedido['estado_pedido'] == 'Entregado') echo 'selected'; ?>>Entregado</option>
+                    <option value="Completado" <?php if ($pedido['estado_pedido'] == 'Completado') echo 'selected'; ?>>Completado</option>
+                    <option value="Rechazado" <?php if ($pedido['estado_pedido'] == 'Rechazado') echo 'selected'; ?>>Rechazado</option>
+                </select>
+                </div>
+            </div>  
+            
+
+
         </div>
-   
-        <div class="row fila_formulario">
-            <label for="Domicilio">Domicilio del cliente: </label>
+        <div id="FilaBotones" class="row">
+                <div class="col-6"><a href="Administracion.php"><button type="button" name="Regresar"><h3>Volver</h3></button></a></div>
+                <div class="col-6"><button type="submit" name="guardar"><h3>Guardar Cambios</h3></button></div>
         </div>
-     
-        <div class="row fila_formulario">
-            <label for="estado_pedido">Estado del pedido: </label>
         </div>
+        </form>
     </div>
-
-    <!-- Esta es la parte derecha del formulario --------------- -->
-    
-    <div class="col-6">
-        <div class="row fila_formulario">
-        <input type="date" name="fecha_pedido" value="<?php echo $pedido['fecha_pedido']; ?>"><br>
-        </div>
-  
-        <div class="row fila_formulario">
-        <input type="text" name="Domicilio" value="<?php echo $pedido['Domicilio']; ?>"><br>
-        </div>
-      
-        <div class="row fila_formulario">
-        <select name="estado_pedido" id="estado_pedido">
-            <option value="Pendiente" <?php if ($pedido['estado_pedido'] == 'Pendiente') echo 'selected'; ?>>Pendiente</option>
-            <option value="En tránsito" <?php if ($pedido['estado_pedido'] == 'En tránsito') echo 'selected'; ?>>En tránsito</option>
-            <option value="Entregado" <?php if ($pedido['estado_pedido'] == 'Entregado') echo 'selected'; ?>>Entregado</option>
-            <option value="Completado" <?php if ($pedido['estado_pedido'] == 'Completado') echo 'selected'; ?>>Completado</option>
-            <option value="Rechazado" <?php if ($pedido['estado_pedido'] == 'Rechazado') echo 'selected'; ?>>Rechazado</option>
-        </select>
-        </div>
-    </div>  
-    
-
-
-</div>
-<div id="FilaBotones" class="row">
-        <div class="col-6"><a href="Administracion.php"><button type="button" name="Regresar"><h3>Volver</h3></button></a></div>
-        <div class="col-6"><button type="submit" name="guardar"><h3>Guardar Cambios</h3></button></div>
-</div>
-</div>
-</form>
-
-</div>
 
 </div>
 
