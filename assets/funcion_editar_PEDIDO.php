@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_pedido = $_POST['id_pedido'];
 
     // Consulta para obtener el pedido específico junto con el domicilio del usuario
-    $consulta_pedidos = "SELECT pedidos.id_pedido, pedidos.id_usuario, pedidos.fecha_pedido, pedidos.total_pedido, pedidos.estado_pedido, usuarios.Domicilio, usuarios.nombre
+    $consulta_pedidos = "SELECT pedidos.id_pedido, pedidos.id_usuario, pedidos.fecha_pedido, pedidos.total_pedido, pedidos.estado_pedido, pedidos.descuento_aplicado, usuarios.Domicilio, usuarios.nombre
                          FROM pedidos
                          JOIN usuarios ON pedidos.id_usuario = usuarios.id_usuario
                          WHERE pedidos.id_pedido = '$id_pedido'";
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
         
         if (mysqli_query($conexion, $actualizar_usuario)) {
             echo "Domicilio actualizado correctamente.<br>";
-        }header("Administracion.php"); 
+        }
 
         // Verificar si el estado es "En tránsito", "Entregado" o "Completado"
         if (in_array($estado_pedido, ['En tránsito', 'Entregado', 'Completado'])) {
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
                 $actualizar_descuento = "UPDATE pedidos SET descuento_aplicado = 1 WHERE id_pedido = '$id_pedido'";
                 mysqli_query($conexion, $actualizar_descuento);
             }
-            header("Administracion.php"); 
+
             // Si el estado es "En tránsito", registrar el envío en la tabla envios
             if ($estado_pedido === 'En tránsito') {
                 // Calcular la fecha de entrega a 5 días
@@ -97,9 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
         }           header("Location: Administracion.php");
     } else {
         echo "Error al actualizar los datos del pedido: " . mysqli_error($conexion);
-    }header("Administracion.php");
+    }
 }
-header("Location: Administracion.php");
+
 mysqli_close($conexion);
 ?>
 

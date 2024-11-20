@@ -43,6 +43,7 @@ die('connect error('.mysqli_connect_errno().')'.mysqli_connect_error());
         $stmt->bind_param("sssss", $nombre, $correo, $Contra, $Domicilio, $Telefono);
         $stmt->execute();
         echo "Registro completado.";
+        header("Location: login.php");
     } else {
         echo "Este número de teléfono ya está registrado.";
     }
